@@ -1,0 +1,1 @@
+export const LOAD_QUESTION = 'questionDetail/LOAD_QUESTION';

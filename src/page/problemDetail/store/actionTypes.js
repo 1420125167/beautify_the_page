@@ -1,0 +1,1 @@
+export const LOAD_PROBLEM = 'problemDetail/LOAD_PROBLEM';

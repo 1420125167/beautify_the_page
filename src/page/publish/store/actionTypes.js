@@ -1,0 +1,1 @@
+export const PUBLISH_PROBLEM = 'publish/PUBLISH_PROBLEM';
