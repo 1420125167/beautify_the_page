@@ -24,7 +24,7 @@ class Home extends PureComponent {
 						<Col span={12}>
 							<CenterContent>
 								<Autoplay/>
-								<Problem/>
+								{/*<Problem/>*/}
 							</CenterContent>
 						</Col>
 						<Col span={6}>

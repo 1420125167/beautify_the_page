@@ -23,33 +23,33 @@ import SearchList from './page/searchList';
 import './statics/iconfont/iconfont.css';
 
 class App extends PureComponent {
-    render() {
-        return (
-          <Provider store={store}>
-              <BrowserRouter>
-                  <div>
-                      <Route path="/" exact component={Home}/>
-                      <Route path="/term" exact component={Term}/>
-                      <Route path="/login" exact component={Login}/>
-                      <Route path="/register" exact component={Register}/>
-                      <Route path="/newsdetail/:id" exact component={NewsDetail}/>
-                      <Route path="/problemdetail/:id" exact component={ProblemDetail}/>
-                      <Route path="/problemlist" exact component={ProblemList}/>
-                      <Route path="/questionlist" exact component={QuestionList}/>
-                      <Route path="/questiondetail/:id" exact component={QuestionDetail}/>
-                      <Route path="/classdetail/:classid/:chapterid" exact component={ClassDetail}/>
-                      <Route path="/searchlist/:type/:search" exact component={SearchList}/>
-                      <Route path="/my" exact component={My}/>
-                      <Route path="/msg" exact component={MsgList}/>
-                      <Route path="/publish" exact component={Publish}/>
-                      <Route path="/modify" exact component={Modify}/>
-                      <Route path="/resource" exact component={Resource}/>
-                  </div>
-              </BrowserRouter>
-          </Provider>
-        )
-    }
-    
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Route path="/" exact component={Home}/>
+            <Route path="/term" exact component={Term}/>
+            <Route path="/login" exact component={Login}/>
+            <Route path="/register" exact component={Register}/>
+            <Route path="/newsdetail/:id" exact component={NewsDetail}/>
+            <Route path="/problemdetail/:id" exact component={ProblemDetail}/>
+            <Route path="/problemlist" exact component={ProblemList}/>
+            <Route path="/questionlist" exact component={QuestionList}/>
+            <Route path="/questiondetail/:id" exact component={QuestionDetail}/>
+            <Route path="/classdetail/:classid/:chapterid" exact component={ClassDetail}/>
+            <Route path="/searchlist/:type/:search" exact component={SearchList}/>
+            <Route path="/my" exact component={My}/>
+            <Route path="/msg" exact component={MsgList}/>
+            <Route path="/publish" exact component={Publish}/>
+            <Route path="/modify" exact component={Modify}/>
+            <Route path="/resource" exact component={Resource}/>
+          </div>
+        </BrowserRouter>
+      </Provider>
+    )
+  }
+  
 }
 
 export default App;

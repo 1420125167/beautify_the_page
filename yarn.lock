@@ -8138,9 +8138,14 @@
   "version" "0.2.0"
 
 "prettier@^1.14.3":
-  "integrity" "sha1-c+N+c+AYrS25x2dC4mR+IXkMlxc="
-  "resolved" "http://registry.npm.taobao.org/prettier/download/prettier-1.16.4.tgz"
-  "version" "1.16.4"
+  "integrity" "sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew=="
+  "resolved" "https://registry.npmmirror.com/prettier/-/prettier-1.19.1.tgz"
+  "version" "1.19.1"
+
+"prettier@^2.6.2":
+  "integrity" "sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew=="
+  "resolved" "https://registry.npmmirror.com/prettier/-/prettier-2.6.2.tgz"
+  "version" "2.6.2"
 
 "pretty-bytes@^4.0.2":
   "integrity" "sha1-sr+C5zUNZcbDOqlaqlpPYyf2HNk="
