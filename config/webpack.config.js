@@ -313,20 +313,38 @@ module.exports = function(webpackEnv) {
           // match the requirements. When no loader matches it will fall
           // back to the "file" loader at the end of the loader list.
           oneOf: [
-            // "url" loader works like "file" loader except that it embeds assets
-            // smaller than specified limit in bytes as data URLs to avoid requests.
-            // A missing `test` is equivalent to a match.
-            {
-              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-              loader: require.resolve('url-loader'),
-              options: {
-                limit: 10000,
-                name: 'static/media/[name].[hash:8].[ext]',
-              },
-            },
-            // Process application JS with Babel.
-            // The preset includes JSX, Flow, TypeScript, and some ESnext features.
-            {
+						// "url" loader works like "file" loader except that it embeds assets
+						// smaller than specified limit in bytes as data URLs to avoid requests.
+						// A missing `test` is equivalent to a match.
+						{
+							test: /\.less$/,
+							use: [{
+								loader: 'style-loader',
+							}, {
+								loader: 'css-loader', // translates CSS into CommonJS
+							}, {
+								loader: 'less-loader', // compiles Less to CSS
+								options: {
+									modifyVars: {
+										'primary-color': '#f9c700',
+										'link-color': '#1DA57A',
+										'border-radius-base': '2px',
+									},
+									javascriptEnabled: true,
+								},
+							}],
+						},
+						{
+							test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+							loader: require.resolve('url-loader'),
+							options: {
+								limit: 10000,
+								name: 'static/media/[name].[hash:8].[ext]',
+							},
+						},
+						// Process application JS with Babel.
+						// The preset includes JSX, Flow, TypeScript, and some ESnext features.
+						{
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               include: paths.appSrc,
               loader: require.resolve('babel-loader'),

@@ -5,11 +5,12 @@ import {Content, RightContent, CenterContent} from './style'
 import {actionCreators} from './store';
 import Bottom from '../../common/bottom';
 import New from './component/new';
-import Problem from './component/problem';
+// import Problem from './component/problem';
 import History from './component/rightnav';
 import LeftMenu from '../../common/leftMenu';
 import Header from '../../common/header';
-import Autoplay from "./component/autoplay";
+import Autoplay from './component/autoplay'
+import Lesson from './component/lesson'
 
 class Home extends PureComponent {
 	render() {
@@ -25,6 +26,7 @@ class Home extends PureComponent {
 							<CenterContent>
 								<Autoplay/>
 								{/*<Problem/>*/}
+								<Lesson />
 							</CenterContent>
 						</Col>
 						<Col span={6}>

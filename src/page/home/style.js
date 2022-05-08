@@ -64,17 +64,18 @@ export const NewsTitle = styled.div`
      display:inline-block
 `;
 export const NewsIcon = styled.div`
-    display:inline-block
-    margin-left:80px;
-    cursor:pointer;
-      .spin{
-    display:block;
-    float:left;
-    font-size:12px;
-    margin-right:2px;
+  display: inline-block;
+  margin-left: 80px;
+  cursor: pointer;
+
+  .spin {
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-right: 2px;
     transition: all .2s ease-in;
-    transform:rotate(0deg);
-    transform-origin:center center;
+    transform: rotate(0deg);
+    transform-origin: center center;
   }
 `;
 export const Banner = styled.div`
