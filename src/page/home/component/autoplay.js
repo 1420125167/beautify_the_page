@@ -1,10 +1,11 @@
 import React, {PureComponent} from 'react';
 import {Carousel, Popover, Card, Button} from 'antd';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {Banner} from "../style";
-import img1 from '../../../statics/home/bg1.jpg';
-import {actionCreators} from "../store";
+import { connect } from 'react-redux'
+import { Banner, LeftButton } from '../style'
+import img1 from '../../../statics/home/bg1.jpg'
+import { actionCreators } from '../store'
+import './home.css'
 
 class Autoplay extends PureComponent {
 	render() {
@@ -12,26 +13,25 @@ class Autoplay extends PureComponent {
 		return (
 			<div>
 				<Button
-					// classname={styles.leftbutton}
-					style={{left:26}}
-					onClick={()=>{
+					className='carouselLeftButton'
+					onClick={() => {
 						this.card.prev()
 					}}>
-					<i className="iconfont">&#xe901;</i>
+					<i className='iconfont'>&#xe901;</i>
 				</Button>
 				<Button
-					// classname={styles.leftbutton}
-					style={{float:'right', right: 26}}
-					onClick={()=>{
+					className={'carouselRightButton'}
+					style={{ float: 'right', right: 0 }}
+					onClick={() => {
 						this.card.next()
 					}}>
-					<i className="iconfont">&#xe900;</i>
+					<i className='iconfont'>&#xe900;</i>
 				</Button>
-				<Carousel autoplay ref={e=>{
-					this.card=e
+				<Carousel autoplay ref={e => {
+					this.card = e
 				}}>
 					{
-						classData.map((item)=>(
+						classData.map((item) => (
 							<Popover
 								placement="right"
 								content={

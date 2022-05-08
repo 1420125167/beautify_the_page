@@ -181,17 +181,17 @@ const mapDispatch = (dispatch) => ({
 		const nickName = nickNameElem.state.value;
 		console.log()
 		if (pwd !== afPwd)
-			message.warning("两次密码不一致");
-		else if (!account || !pwd || !afPwd || !nickName || !img)
-			message.error("内容不能为空");
+			message.warning('两次密码不一致')
+		else if (!account || !pwd || !afPwd || !nickName)
+			message.error('内容不能为空')
 		else if (!/^[0-9]+$/.test(account) && account.length !== 11)
-			message.error("账号格式错误");
+			message.error('账号格式错误')
 		else if (nickName.length > 12)
-			message.warning("昵称长度超出限制");
+			message.warning('昵称长度超出限制')
 		else if (pwd.length >= 8 && pwd.length <= 24) {
-			dispatch(actionCreators.postUserData(step + 1, account, pwd, nickName, img));
+			dispatch(actionCreators.postUserData(step + 1, account, pwd, nickName, img))
 		} else
-			message.warning("密码必须大于8位且小于24位");
+			message.warning('密码必须大于8位且小于24位')
 	},
 	handleBackStep(step) {
 		dispatch(actionCreators.backStep(step - 1))

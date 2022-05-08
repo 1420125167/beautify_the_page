@@ -51,14 +51,14 @@ class ProblemList extends PureComponent {
 									itemLayout="vertical"
 									dataSource={problem}
 									renderItem={item => (
-										<Link to={"problemdetail/" + item.get('id')}>
+										<Link to={'/problemdetail/' + item.get('id')}>
 											<List.Item
-												actions={[<IconText type="message" text={item.get("comment_num")}/>,
-													<span>{item.get("problem_date")}</span>]}
-												style={{marginTop: 20}}>
+												actions={[<IconText type='message' text={item.get('comment_num')} />,
+													<span>{item.get('problem_date')}</span>]}
+												style={{ marginTop: 20 }}>
 												<List.Item.Meta
-													avatar={<Avatar src={item.getIn(['user', 'user_img'])}/>}
-													title={<a href="https://ant.design">{item.getIn(['user', 'user_nickname'])} </a>}
+													avatar={<Avatar src={item.getIn(['user', 'user_img'])} />}
+													title={<a href='https://ant.design'>{item.getIn(['user', 'user_nickname'])} </a>}
 													description={item.get('problem_title')}
 												/>
 												{item.get('problem_content')}

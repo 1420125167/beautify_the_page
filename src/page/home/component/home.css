@@ -1,0 +1,42 @@
+.carouselLeftButton {
+  margin-top: 119px;
+  width: 42px;
+  height: 42px;
+  z-index: 999;
+  border: none;
+  outline: 0;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.2;
+  position: absolute;
+}
+
+.carouselLeftButton:hover {
+  opacity: 0.6;
+}
+
+.carouselRightButton {
+  margin-top: 119px;
+  margin-right: 30px;
+  width: 42px;
+  height: 42px;
+  z-index: 999;
+  border: none;
+  outline: 0;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.2;
+  position: absolute;
+}
+
+.carouselRightButton:hover {
+  opacity: 0.6;
+}
+
+.homepageCard {
+  margin-top: 20px;
+  padding: 30px;
+  /*background: #ececec;*/
+}
