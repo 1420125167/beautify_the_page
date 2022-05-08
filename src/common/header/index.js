@@ -70,17 +70,14 @@ class Header extends PureComponent {
 		return (
 			<div>
 				<Row className="header" gutter={4}>
-					<Col span={1}><Logo/></Col>
-					<Col span={3}>
+					<Col span={1}>
 						<Link to='/'>
-							<HeadItem>
-								首页
-							</HeadItem>
+							<Logo />
 						</Link>
 					</Col>
-					<Col span={11}>
+					<Col span={14}>
 						<InputWrapper>
-							<SearchInput/>
+							<SearchInput />
 						</InputWrapper>
 					</Col>
 					<Col span={2}>
