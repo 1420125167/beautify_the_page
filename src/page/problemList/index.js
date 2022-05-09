@@ -1,27 +1,28 @@
 import React, {PureComponent} from 'react';
 import {Link} from 'react-router-dom';
-import {fromJS} from 'immutable';
-import {List, Avatar, Row, Col, Icon, Pagination} from 'antd';
-import {connect} from 'react-redux';
-import {ProblemWrapper, ProblemItem, BottomPageNav} from './style';
-import {actionCreators} from './store';
-import LeftMenu from '../../common/leftMenu';
-import Header from '../../common/header';
-import RightContent from '../../common/rightContent';
+import { fromJS } from 'immutable'
+import { List, Avatar, Row, Col, Pagination } from 'antd'
+import { connect } from 'react-redux'
+import { ProblemWrapper, ProblemItem, BottomPageNav } from './style'
+import { actionCreators } from './store'
+import LeftMenu from '../../common/leftMenu'
+import Header from '../../common/header'
+import RightContent from '../../common/rightContent'
+import { MessageOutlined } from '@ant-design/icons'
 
-const IconText = ({type, text}) => (
-	<span>
-    <Icon type={type} style={{marginRight: 8}}/>
-		{text}
-  </span>
-);
+// const IconText = ({type, text}) => (
+// 	<span>
+//     <Icon type={type} style={{marginRight: 8}}/>
+// 		{text}
+//   </span>
+// );
 
 class ProblemList extends PureComponent {
 	
 	render() {
-		const {data, page} = this.props;
-		const newData = data.toJS(data);
-		const list = [];
+		const { data, page } = this.props
+		const newData = data.toJS(data)
+		const list = []
 		if (newData.length) {
 			if (newData.length >= page * 6) {
 				for (let i = (page - 1) * 6; i < page * 6; i++) {
@@ -53,7 +54,10 @@ class ProblemList extends PureComponent {
 									renderItem={item => (
 										<Link to={'/problemdetail/' + item.get('id')}>
 											<List.Item
-												actions={[<IconText type='message' text={item.get('comment_num')} />,
+												actions={[
+													// <IconText type='message' text={item.get('comment_num')} />,
+													<MessageOutlined style={{ marginRight: 8 }} type={'message'}
+																					 text={item.get('comment_num')} />,
 													<span>{item.get('problem_date')}</span>]}
 												style={{ marginTop: 20 }}>
 												<List.Item.Meta

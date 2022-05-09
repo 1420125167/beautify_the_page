@@ -1,19 +1,20 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Menu, Icon, Card, Row, Col, List, Avatar } from 'antd'
+import { Menu, Card, Row, Col, List, Avatar } from 'antd'
 import { actionCreators } from '../store'
 import './home.css'
 import problem from './problem'
+import { MailOutlined } from '@ant-design/icons'
 
 const SubMenu = Menu.SubMenu
 
-const IconText = ({ type, text }) => (
-	<span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-		{text}
-  </span>
-)
+// const IconText = ({ type, text }) => (
+// 	<span>
+//     <Icon type={type} style={{ marginRight: 8 }} />
+// 		{text}
+//   </span>
+// )
 
 class Lesson extends PureComponent {
 	render() {
@@ -39,7 +40,8 @@ class Lesson extends PureComponent {
 						classList.map((item1) => (
 							<SubMenu
 								key={item1.get('id')}
-								title={<span><Icon type='mail' /><span>{item1.get('lesson_name')}</span></span>}
+								// title={<span><Icon type='mail' /><span>{item1.get('lesson_name')}</span></span>}
+								title={<span><MailOutlined /><span>{item1.get('lesson_name')}</span></span>}
 							>
 								{
 									chapterList.map((item) => (

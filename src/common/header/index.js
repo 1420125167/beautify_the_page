@@ -1,23 +1,25 @@
 import React, {PureComponent} from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux'
-import { Row, Col, Drawer, Icon, Avatar, Badge, Tooltip, Button, Divider } from 'antd'
+import { Row, Col, Drawer, Avatar, Badge, Tooltip, Button, Divider } from 'antd'
 import { Editor } from 'react-draft-wysiwyg'
-import {EditorState, convertToRaw, ContentState} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
-import htmlToDraft from 'html-to-draftjs';
-import MyPic from '../../statics/my.jpg';
-import SearchInput from './component/search';
-import {Logo, HeadItem, InputWrapper, Note, Msg, MyHome, NextNote} from './style';
-import {actionCreators} from './store';
-import {actionCreators as loginActionCreators} from '../../page/login/store';
+import { EditorState, convertToRaw, ContentState } from 'draft-js'
+import draftToHtml from 'draftjs-to-html'
+import htmlToDraft from 'html-to-draftjs'
+import MyPic from '../../statics/my.jpg'
+import SearchInput from './component/search'
+import { Logo, HeadItem, InputWrapper, Note, Msg, MyHome, NextNote } from './style'
+import { actionCreators } from './store'
+import { actionCreators as loginActionCreators } from '../../page/login/store'
+import AvatarMenu from './component/avatarMenu'
+import { MailTwoTone } from '@ant-design/icons'
 
 class Header extends PureComponent {
 	state = {
 		visible: false,
 		childrenDrawer: false,
-		editorState: ""
-	};
+		editorState: '',
+	}
 	showDrawer = () => {
 		this.setState({
 			visible: true,
@@ -69,40 +71,35 @@ class Header extends PureComponent {
 		const editor = editorState ? editorState : editorState1;
 		return (
 			<div>
-				<Row className="header" gutter={4}>
+				<Row className='header' gutter={4} style={{ marginTop: 5 }}>
 					<Col span={1}>
 						<Link to='/'>
 							<Logo />
 						</Link>
 					</Col>
-					<Col span={14}>
+					<Col span={8}>
 						<InputWrapper>
 							<SearchInput />
 						</InputWrapper>
 					</Col>
 					<Col span={2}>
-						{/*{*/}
-						{/*	!IsLogin ?*/}
-						{/*		<Link to='/login'>*/}
-						{/*			<HeadItem>*/}
-						{/*				登录*/}
-						{/*			</HeadItem>*/}
-						{/*		</Link> :*/}
-						{/*		<HeadItem onClick={this.props.logout}>*/}
-						{/*			退出*/}
-						{/*		</HeadItem>*/}
-						{/*}*/}
+						<Link to='/problemlist'><HeadItem>问题</HeadItem></Link>
 					</Col>
 					<Col span={2}>
-						<Link to='/publish'>
-							<HeadItem>
-								发布
-							</HeadItem>
-						</Link>
+						<Link to='/term'><HeadItem>AI术语</HeadItem></Link>
+					</Col>
+					<Col span={2}>
+						<Link to='/questionlist'><HeadItem>官方手册</HeadItem></Link>
+					</Col>
+					<Col span={2}>
+						<Link to='/resource'><HeadItem>资源下载</HeadItem></Link>
+					</Col>
+					<Col span={2}>
+						<Link to='/publish'><HeadItem>发布</HeadItem></Link>
 					</Col>
 					<Col span={1}>
 						<HeadItem>
-							<i className="iconfont" style={{fontSize: 28, color: "rgb(255,215,0)"}}>&#xe619;</i>
+							<i className='iconfont' style={{ fontSize: 28, color: 'rgb(255,215,0)' }}>&#xe619;</i>
 							{/*<Icon type="dollar" theme="twoTone"/>*/}
 							<span>{score ? score : 0}</span>
 						</HeadItem>
@@ -114,23 +111,24 @@ class Header extends PureComponent {
 						</Note>
 					</Col>
 					<Col span={1}>
-						<Badge count={messageNum ? messageNum : 0} style={{marginTop: 10}}>
+						<Badge count={messageNum ? messageNum : 0} style={{ marginTop: 10 }}>
 							<Msg>
-								<Link to="/msg">
-									<Icon type="mail" theme="twoTone"/>
+								<Link to='/msg'>
+									{/*<Icon type="mail" theme="twoTone"/>*/}
+									<MailTwoTone />
 								</Link>
 							</Msg>
 						</Badge>
 					</Col>
 					<Col span={1} offset={1}>
-						<Link to="/my">
-							<MyHome>
-								<Tooltip placement="bottom" title={name ? name : "未登录"}>
-									<Avatar size="large" src={img ? img : MyPic}/>
-								</Tooltip>
-							
-							</MyHome>
-						</Link>
+						<AvatarMenu />
+						{/*<Link to="/my">*/}
+						{/*	<MyHome>*/}
+						{/*		<Tooltip placement="bottom" title={name ? name : "未登录"}>*/}
+						{/*			<Avatar size="large" src={img ? img : MyPic}/>*/}
+						{/*		</Tooltip>*/}
+						{/*	</MyHome>*/}
+						{/*</Link>*/}
 					</Col>
 				</Row>
 				<Drawer
@@ -194,7 +192,7 @@ class Header extends PureComponent {
 							null
 					}
 				</Drawer>
-				<Divider style={{ marginTop: 10 }} />
+				<Divider style={{ marginTop: 5 }} />
 			</div>
 		)
 	}

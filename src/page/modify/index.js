@@ -1,9 +1,10 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
-import {Row, Col, Icon, Input, Button, Alert, message} from 'antd';
-import {LoginWrapper, LoginTitle, LoginBottom, Wrapper} from './style';
-import {actionCreators} from './store';
+import { Redirect } from 'react-router-dom'
+import { Row, Col, Input, Button, Alert, message } from 'antd'
+import { LoginWrapper, LoginTitle, LoginBottom, Wrapper } from './style'
+import { actionCreators } from './store'
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
 
 class Modify extends PureComponent {
 	render() {
@@ -17,9 +18,10 @@ class Modify extends PureComponent {
 							<LoginWrapper>
 								<LoginTitle>修改密码</LoginTitle>
 								<Input
-									style={{marginTop: 20}}
-									prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
-									placeholder="账号"
+									style={{ marginTop: 20 }}
+									// prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
+									prefix={<UserOutlined />}
+									placeholder='账号'
 									disabled={!like}
 									ref={input => {
 										this.account = input
@@ -36,27 +38,30 @@ class Modify extends PureComponent {
 									) : null
 								}
 								<Input
-									style={{marginTop: 20}}
-									prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
-									placeholder="密码"
-									type="password"
+									style={{ marginTop: 20 }}
+									// prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
+									prefix={<UserOutlined />}
+									placeholder='密码'
+									type='password'
 									ref={input => {
 										this.password = input
 									}}
 								/>
 								<Input
-									style={{marginTop: 20}}
-									prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
-									placeholder="确认密码"
-									type="password"
+									style={{ marginTop: 20 }}
+									// prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
+									prefix={<UserOutlined />}
+									placeholder='确认密码'
+									type='password'
 									ref={input => {
 										this.afPassword = input
 									}}
 								/>
 								<Input
-									style={{marginTop: 20, width: "50%"}}
-									prefix={<Icon type="lock" style={{color: '#5eb2ff'}}/>}
-									placeholder="密码"
+									style={{ marginTop: 20, width: '50%' }}
+									// prefix={<Icon type="lock" style={{color: '#5eb2ff'}}/>}
+									prefix={<LockOutlined />}
+									placeholder='密码'
 									ref={input => {
 										this.code = input
 									}}
