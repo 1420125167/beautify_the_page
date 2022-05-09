@@ -31,7 +31,7 @@ class Home extends PureComponent {
 						</Col>
 						<Col span={6}>
 							<RightContent>
-								<History/>
+								{/*<History/>*/}
 								<New/>
 							</RightContent>
 						</Col>

@@ -1,29 +1,30 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import {Comment, Avatar, Row, Col, message, Card} from 'antd';
-import {Form, Button, Input, Icon} from 'antd';
-import {ProblemWrapper, CommentWrapper} from './style';
-import LeftMenu from '../../common/leftMenu';
-import Header from '../../common/header';
-import {actionCreators} from './store';
-import {actionCreators as loginActionCreators} from '../login/store';
+import { Comment, Avatar, Row, Col, message, Card } from 'antd'
+import { Form, Button, Input } from 'antd'
+import { ProblemWrapper, CommentWrapper } from './style'
+import LeftMenu from '../../common/leftMenu'
+import Header from '../../common/header'
+import { actionCreators } from './store'
+import { actionCreators as loginActionCreators } from '../login/store'
+import { LikeOutlined, MessageOutlined } from '@ant-design/icons'
 
-const TextArea = Input.TextArea;
-const IconText = ({type, text}) => (
-	<span>
-    <Icon type={type} style={{marginRight: 8}}/>
-		{text}
-  </span>
-);
+const TextArea = Input.TextArea
+// const IconText = ({type, text}) => (
+// 	<span>
+//     <Icon type={type} style={{marginRight: 8}}/>
+// 		{text}
+//   </span>
+// );
 
 class ProblemDetail extends PureComponent {
 	render() {
-		const {comment, userName, userImg, problem, publisher, id, score} = this.props;
+		const { comment, userName, userImg, problem, publisher, id, score } = this.props
 		return (
 			<div>
 				<Row>
-					<Header/>
+					<Header />
 				</Row>
 				<Row>
 					<Col span={4}>
@@ -36,7 +37,11 @@ class ProblemDetail extends PureComponent {
 									problem ?
 										<Comment
 											actions={[<span>回复</span>,
-												<IconText type="message" text={problem.get('comment_num')}/>]}
+												// <IconText type="message" text={problem.get('comment_num')}/>
+												<MessageOutlined style={{ marginRight: 8 }} type={'message'}
+																				 text={problem.get('comment_num')} />,
+											]
+											}
 											author={<span>{publisher.get('user_nickname')}</span>}
 											datetime={problem.get('date')}
 											avatar={(
@@ -82,9 +87,12 @@ class ProblemDetail extends PureComponent {
 														comment.map((item) => (
 															<Comment
 																actions={[<span
+																	// onClick={() => this.props.changePraise(item.get('id'), this.props.match.params.id)}>
+																	//                                           <Icon type="like-o"
+																	// 																								style={{marginRight: 8}}/>{item.get('comment_agree')}</span>,
 																	onClick={() => this.props.changePraise(item.get('id'), this.props.match.params.id)}>
-                                                                            <Icon type="like-o"
-																																									style={{marginRight: 8}}/>{item.get('comment_agree')}</span>,
+                                                                            <LikeOutlined
+																																							style={{ marginRight: 8 }} />{item.get('comment_agree')}</span>,
 																	<span>{item.get('date')}</span>]}
 																author={<span>{item.getIn(['user_name'])}</span>}
 																avatar={(

@@ -1,11 +1,12 @@
-import React, {PureComponent} from 'react';
-import {Input, Icon, Upload, Modal, Row, Col, Button, message} from 'antd';
-import {actionCreators} from './store';
+import React, { PureComponent } from 'react'
+import { Input, Upload, Modal, Row, Col, Button, message } from 'antd'
+import { actionCreators } from './store'
 import {connect} from 'react-redux';
 import {PublishWrapper} from './style';
 import {actionCreators as loginActionCreators} from '../login/store';
 import LeftMenu from '../../common/leftMenu';
-import Header from '../../common/header';
+import Header from '../../common/header'
+import { PlusOutlined } from '@ant-design/icons'
 
 const TextArea = Input.TextArea;
 
@@ -50,8 +51,9 @@ class Publish extends PureComponent {
 		const {id, score} = this.props;
 		const uploadButton = (
 			<div>
-				<Icon type="plus"/>
-				<div className="ant-upload-text">Upload</div>
+				{/*<Icon type="plus"/>*/}
+				<PlusOutlined />
+				<div className='ant-upload-text'>Upload</div>
 			</div>
 		);
 		return (

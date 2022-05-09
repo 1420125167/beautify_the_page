@@ -1,14 +1,15 @@
-import React, {PureComponent} from 'react';
-import {Link, Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {Row, Col, Icon, Input, Button, Checkbox, Alert} from 'antd';
-import {LoginWrapper, LoginLogo, LoginTitle, LoginBottom, LoginItem, Wrapper} from './style';
-import {actionCreators} from './store';
-import LogoPic from '../../statics/logo.png';
+import React, { PureComponent } from 'react'
+import { Link, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Row, Col, Input, Button, Checkbox, Alert } from 'antd'
+import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { LoginWrapper, LoginLogo, LoginTitle, LoginBottom, LoginItem, Wrapper } from './style'
+import { actionCreators } from './store'
+import LogoPic from '../../statics/logo.png'
 
 class Login extends PureComponent {
 	render() {
-		const {loginStatue, login} = this.props;
+		const { loginStatue, login } = this.props
 		if (!loginStatue) {
 			return (
 				<div>
@@ -19,18 +20,20 @@ class Login extends PureComponent {
 								<LoginLogo src={LogoPic}/>
 								<LoginTitle>登录</LoginTitle>
 								<Input
-									style={{marginTop: 20}}
-									prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
-									placeholder="账号"
+									style={{ marginTop: 20 }}
+									// prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
+									prefix={<UserOutlined />}
+									placeholder='账号'
 									ref={input => {
 										this.account = input
 									}}
 								/>
 								<Input
-									style={{marginTop: 20}}
-									prefix={<Icon type="lock" style={{color: '#5eb2ff'}}/>}
-									type="password"
-									placeholder="密码"
+									style={{ marginTop: 20 }}
+									// prefix={<Icon type="lock" style={{color: '#5eb2ff'}}/>}
+									prefix={<LockOutlined />}
+									type='password'
+									placeholder='密码'
 									ref={input => {
 										this.password = input
 									}}

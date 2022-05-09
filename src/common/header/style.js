@@ -2,19 +2,22 @@ import styled from 'styled-components';
 import logoPic from '../../statics/logo.png';
 
 export const Logo = styled.img.attrs({
-	src: logoPic
+	src: logoPic,
 })`
-     margin-left:10px;
-     height: 46px;
-`;
+  margin-left: 10px;
+  height: 46px;
+`
+export const TopNav = styled.div`
+  width: 100%;
+`
 export const HeadItem = styled.div`
-    text-align: center;
-    margin: 0 auto;
-    height: 46px;
-    line-height: 46px;
-    font-size:18px;
-    
-`;
+  text-align: center;
+  margin: 0 auto;
+  height: 46px;
+  line-height: 46px;
+  font-size: 18px;
+
+`
 export const NavItem = styled.div`
     text-align: center;
     margin: 0 auto;
@@ -46,17 +49,20 @@ export const MyHome = styled.div`
     cursor:pointer;
 `;
 export const SearchWrapper = styled.div`
- .global-search-wrapper {
+  .global-search-wrapper {
     padding-right: 50px;
-}
-.global-search {
-    width: 100%;
-}
-.global-search.ant-select-auto-complete .ant-select-selection--single {
-    margin-right: -46px;
-}
+    margin: 0 auto;
+  }
 
-.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input:not(:last-child) {
+  .global-search {
+    width: 100%;
+  }
+
+  .global-search.ant-select-auto-complete .ant-select-selection--single {
+    margin-right: -46px;
+  }
+
+  .global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input:not(:last-child) {
     padding-right: 62px;
 }
 

@@ -1,29 +1,30 @@
-import React, {PureComponent} from 'react';
-import {Row, Col, Avatar, Tag, List, Icon, Progress, Divider, Modal, Upload, message, Popconfirm} from 'antd';
-import {MyImg, MyType, MyProblem, History, HistoryHead, MyWrapper, ProblemItem, ProblemHead} from './style';
-import {actionCreators} from './store';
-import {actionCreators as loginActionCreators} from '../login/store';
-import axios from 'axios';
-import {connect} from 'react-redux';
-import LeftMenu from '../../common/leftMenu';
-import Header from '../../common/header/index';
-import MyPic from '../../statics/my.jpg';
+import React, { PureComponent } from 'react'
+import { Row, Col, Avatar, Tag, List, Progress, Divider, Modal, Upload, message, Popconfirm } from 'antd'
+import { MyImg, MyType, MyProblem, History, HistoryHead, MyWrapper, ProblemItem, ProblemHead } from './style'
+import { actionCreators } from './store'
+import { actionCreators as loginActionCreators } from '../login/store'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import LeftMenu from '../../common/leftMenu'
+import Header from '../../common/header/index'
+import MyPic from '../../statics/my.jpg'
+import { MessageOutlined, PlusOutlined } from '@ant-design/icons'
 
-const IconText = ({type, text}) => (
-	<span>
-    <Icon type={type} style={{marginRight: 8}}/>
-		{text}
-  </span>
-);
+// const IconText = ({type, text}) => (
+// 	<span>
+//     <Icon type={type} style={{marginRight: 8}}/>
+// 		{text}
+//   </span>
+// );
 
 class My extends PureComponent {
 	state = {
 		visible: false,
 		previewVisible: false,
 		previewImage: '',
-		fileList: []
-	};
-	handleCancel = () => this.setState({previewVisible: false})
+		fileList: [],
+	}
+	handleCancel = () => this.setState({ previewVisible: false })
 	
 	handlePreview = (file) => {
 		this.setState({
@@ -76,11 +77,11 @@ class My extends PureComponent {
 							<MyType>
 								{
 									name ? <Tag color="magenta">{name}</Tag> :
-										<Tag color="magenta">浮生若梦</Tag>
+										<Tag color='magenta'>未登录</Tag>
 								}
 								{
 									phone ? <Tag color="orange">{phone}</Tag> :
-										<Tag color="orange">17863957609</Tag>
+										<Tag color='orange'>未登录</Tag>
 								}
 							</MyType>
 						</MyWrapper>
@@ -119,17 +120,19 @@ class My extends PureComponent {
 									dataSource={problem}
 									renderItem={item => (
 										<List.Item
-											actions={[<IconText type="message" text={item.get("comment_num")}/>,
-												<span>{item.get("problem_date")}</span>]}
-											style={{marginTop: 20}}>
+											actions={[
+												// <IconText type="message" text={item.get("comment_num")}/>,
+												<MessageOutlined style={{ marginRight: 8 }} type='message' text={item.get('comment_num')} />,
+												<span>{item.get('problem_date')}</span>]}
+											style={{ marginTop: 20 }}>
 											<List.Item.Meta
-												avatar={<Avatar src={item.getIn(['user', 'img'])}/>}
-												title={<a href="https://ant.design">{item.getIn(['user', 'name'])} </a>}
+												avatar={<Avatar src={item.getIn(['user', 'img'])} />}
+												title={<a href='https://ant.design'>{item.getIn(['user', 'name'])} </a>}
 												description={item.get('problem_title')}
 											/>
 											{item.get('problem_content')}
 											<p
-												style={{float: "right", cursor: "pointer"}}
+												style={{ float: 'right', cursor: 'pointer' }}
 												// onClick={()=>this.props.deleteProblem(item.get('id'),this.props.id)}
 											>
 												<Popconfirm
@@ -172,8 +175,9 @@ class My extends PureComponent {
 								fileList.length >= 1 ?
 									null :
 									<div>
-										<Icon type="plus"/>
-										<div className="ant-upload-text">Upload</div>
+										{/*<Icon type="plus"/>*/}
+										<PlusOutlined />
+										<div className='ant-upload-text'>Upload</div>
 									</div>
 							}
 						

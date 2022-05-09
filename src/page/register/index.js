@@ -1,15 +1,16 @@
-import React, {PureComponent} from 'react';
-import {Link} from 'react-router-dom';
-import {Row, Col, Steps, Button, Form, Input, Icon, Upload, Checkbox, Progress, message} from 'antd';
-import {connect} from 'react-redux';
-import {actionCreators} from './store';
-import {RegisterTitle} from './style';
+import React, { PureComponent } from 'react'
+import { Link } from 'react-router-dom'
+import { Row, Col, Steps, Button, Form, Input, Upload, Checkbox, Progress, message } from 'antd'
+import { UserOutlined, LockOutlined, UploadOutlined } from '@ant-design/icons'
+import { connect } from 'react-redux'
+import { actionCreators } from './store'
+import { RegisterTitle } from './style'
 
-const Step = Steps.Step;
+const Step = Steps.Step
 
 class Register extends PureComponent {
 	render() {
-		let imgUrl;
+		let imgUrl
 		const {
 			handleNextStep,
 			handleBackStep,
@@ -41,44 +42,48 @@ class Register extends PureComponent {
 								
 								<Form>
 									<Input
-										placeholder="手机号"
-										prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+										placeholder='手机号'
+										// prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+										prefix={<UserOutlined />}
 										ref={input => {
 											this.account = input
 										}}
-										style={{marginTop: 20}}
+										style={{ marginTop: 20 }}
 									/>
 									<Input
-										placeholder="密码"
-										type="password"
-										prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+										placeholder='密码'
+										type='password'
+										// prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+										prefix={<LockOutlined />}
 										ref={input => {
 											this.password = input
 										}}
-										style={{marginTop: 20}}
+										style={{ marginTop: 20 }}
 									/>
 									<Input
-										placeholder="确认密码"
-										type="password"
-										prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-										style={{marginTop: 20}}
+										placeholder='确认密码'
+										type='password'
+										// prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+										prefix={<LockOutlined />}
+										style={{ marginTop: 20 }}
 										ref={input => {
 											this.afPassword = input
 										}}
 									/>
 									<Input
-										placeholder="昵称"
-										prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
-										style={{marginTop: 20}}
+										placeholder='昵称'
+										// prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+										prefix={<UserOutlined />}
+										style={{ marginTop: 20 }}
 										ref={input => {
 											this.nickname = input
 										}}
 									/>
 									<Form.Item
-										label="上传头像">
+										label='上传头像'>
 										<Upload
-											action="/pic"
-											listType="picture"
+											action='/pic'
+											listType='picture'
 											onChange={(file, fileList) => {
 												imgUrl = file.file.thumbUrl;
 												if (file.status !== 'uploading') {
@@ -86,7 +91,7 @@ class Register extends PureComponent {
 											}}
 										>
 											<Button>
-												<Icon type="upload"/> Upload
+												<UploadOutlined /> Upload
 											</Button>
 										</Upload>
 									</Form.Item>
@@ -106,9 +111,10 @@ class Register extends PureComponent {
 							(step === 1) ?
 								<Form style={{marginTop: 20}}>
 									<Input
-										style={{marginTop: 20, width: "50%"}}
-										prefix={<Icon type="lock" style={{color: '#5eb2ff'}}/>}
-										placeholder="验证码"
+										style={{ marginTop: 20, width: '50%' }}
+										// prefix={<Icon type="lock" style={{color: '#5eb2ff'}}/>}
+										prefix={<UploadOutlined />}
+										placeholder='验证码'
 										ref={input => {
 											this.code = input
 										}}

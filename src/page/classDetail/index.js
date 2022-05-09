@@ -1,18 +1,19 @@
-import React, {PureComponent} from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {tomorrowNightEighties} from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import {Row, Col, Input, Divider, List, Affix, Icon, Drawer, Button, PageHeader, Card, BackTop, Empty} from 'antd';
-import {Player} from 'video-react';
-import axios from 'axios';
-import {Editor} from 'react-draft-wysiwyg';
-import {EditorState, convertToRaw, ContentState} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
-import htmlToDraft from 'html-to-draftjs';
-import {actionCreators} from './store';
-import {actionCreators as loginActionCreators} from '../login/store';
-import {actionCreators as headerActionCreators} from '../../common/header/store';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import React, { PureComponent } from 'react'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { Row, Col, Input, Divider, List, Affix, Drawer, Button, PageHeader, Card, BackTop, Empty } from 'antd'
+import { DollarCircleOutlined, BookTwoTone } from '@ant-design/icons'
+import { Player } from 'video-react'
+import axios from 'axios'
+import { Editor } from 'react-draft-wysiwyg'
+import { EditorState, convertToRaw, ContentState } from 'draft-js'
+import draftToHtml from 'draftjs-to-html'
+import htmlToDraft from 'html-to-draftjs'
+import { actionCreators } from './store'
+import { actionCreators as loginActionCreators } from '../login/store'
+import { actionCreators as headerActionCreators } from '../../common/header/store'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import {
 	ClassDetailWrapper,
 	ImgBlock,
@@ -200,7 +201,7 @@ class ClassDetail extends PureComponent {
 										renderItem={item => (
 											<List.Item
 												key={item.get('id')}
-												actions={[<span style={{color: "yellow"}}><Icon type="dollar"/>10</span>]}
+												actions={[<span style={{ color: 'yellow' }}><DollarCircleOutlined />10</span>]}
 											>
 												{
 													score >= 10 ?
@@ -219,9 +220,10 @@ class ClassDetail extends PureComponent {
 				</Row>
 				
 				<Affix style={{position: 'absolute', top: "50%", right: 50}}>
-					<div onClick={this.showDrawer} style={{cursor: 'pointer'}}>
-						<Icon type="book" theme="twoTone" style={{fontSize: '32px', color: '#08c'}}/>
-						<p style={{fontSize: '10px', textAlign: "center"}}>笔记</p>
+					<div onClick={this.showDrawer} style={{ cursor: 'pointer' }}>
+						{/*<Icon type="book" theme="twoTone" style={{fontSize: '32px', color: '#08c'}}/>*/}
+						<BookTwoTone />
+						<p style={{ fontSize: '10px', textAlign: 'center' }}>笔记</p>
 					</div>
 				</Affix>
 				<Drawer

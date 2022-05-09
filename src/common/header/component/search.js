@@ -1,19 +1,22 @@
-import React, {PureComponent} from 'react';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {actionCreators} from '../store';
-import {SearchWrapper} from '../style';
-import {Icon, Button, Input, AutoComplete} from 'antd';
+import React, { PureComponent } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { actionCreators } from '../store'
+import { SearchWrapper } from '../style'
+import { Button, Input, AutoComplete, Select } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
 
-const Option = AutoComplete.Option;
-const OptGroup = AutoComplete.OptGroup;
+// const Option = AutoComplete.Option
+// const OptGroup = AutoComplete.OptGroup
+// TODO: Repair the search engine
+const { Option, OptGroup } = Select
 
 function renderOption(item) {
 	return (
 		<OptGroup label={<span>{item.get('type')}</span>}>
 			<Option value={item.get('keyword')}>
-				<Link to={"/searchlist/" + item.get('type_e') + "/" + item.get('keyword')}>
-					<span className="certain-search-item-count">{item.get('msgNum')} 条搜索记录</span>
+				<Link to={'/searchlist/' + item.get('type_e') + '/' + item.get('keyword')}>
+					<span className='certain-search-item-count'>{item.get('msgNum')} 条搜索记录</span>
 				</Link>
 			</Option>
 		</OptGroup>
@@ -49,8 +52,9 @@ class SearchInput extends PureComponent {
 						<Input
 							suffix={(
 								<Link to={"/problemlist/" + this.state.input}>
-									<Button className="search-btn" size="large" type="primary">
-										<Icon type="search"/>
+									<Button className='search-btn' size='large' type='primary'>
+										{/*<Icon type="search"/>*/}
+										<SearchOutlined />
 									</Button>
 								</Link>
 							)}
