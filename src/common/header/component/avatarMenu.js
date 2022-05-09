@@ -9,14 +9,16 @@ const menu = (
 	<Menu
 		items={[
 			{
-				// label: <a href={'/my'}>个人空间</a>,
-				label: <Link to={'/my'}>个人空间</Link>,
+				label: <Link to={'/login'}>登录</Link>,
 				key: '1',
+			},
+			{
+				label: <Link to={'/my'}>个人空间</Link>,
+				key: '2',
 			},
 		]}
 	/>
 )
-
 
 class AvatarMenu extends Component {
 	render() {

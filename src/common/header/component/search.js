@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from '../store'
 import { SearchWrapper } from '../style'
-import { Button, Input, AutoComplete } from 'antd'
+import { Button, Input, AutoComplete, Select } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 
-const Option = AutoComplete.Option
-const OptGroup = AutoComplete.OptGroup
+// const Option = AutoComplete.Option
+// const OptGroup = AutoComplete.OptGroup
+// TODO: Repair the search engine
+const { Option, OptGroup } = Select
 
 function renderOption(item) {
 	return (
