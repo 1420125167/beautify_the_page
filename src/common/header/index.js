@@ -97,6 +97,19 @@ class Header extends PureComponent {
 					<Col span={2}>
 						<Link to='/publish'><HeadItem>发布</HeadItem></Link>
 					</Col>
+					{/*<Col span={8}>*/}
+					{/*	{*/}
+					{/*		!IsLogin ?*/}
+					{/*			<Link to='/login'>*/}
+					{/*				<HeadItem>*/}
+					{/*					登录*/}
+					{/*				</HeadItem>*/}
+					{/*			</Link> :*/}
+					{/*			<HeadItem onClick={this.props.logout}>*/}
+					{/*				退出*/}
+					{/*			</HeadItem>*/}
+					{/*	}*/}
+					{/*</Col>*/}
 					<Col span={1}>
 						<HeadItem>
 							<i className='iconfont' style={{ fontSize: 28, color: 'rgb(255,215,0)' }}>&#xe619;</i>
@@ -106,7 +119,7 @@ class Header extends PureComponent {
 					</Col>
 					<Col span={1}>
 						<Note onClick={this.showDrawer}>
-							<i className="iconfont" style={{fontSize: 28}}>&#xe896;</i>
+							<i className='iconfont' style={{ fontSize: 28 }}>&#xe896;</i>
 							{/*<Icon type="book" />*/}
 						</Note>
 					</Col>
