@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {Row, Col, Drawer, Icon, Avatar, Badge, Tooltip, Button} from 'antd';
-import {Editor} from 'react-draft-wysiwyg';
+import { connect } from 'react-redux'
+import { Row, Col, Drawer, Icon, Avatar, Badge, Tooltip, Button, Divider } from 'antd'
+import { Editor } from 'react-draft-wysiwyg'
 import {EditorState, convertToRaw, ContentState} from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
@@ -81,17 +81,17 @@ class Header extends PureComponent {
 						</InputWrapper>
 					</Col>
 					<Col span={2}>
-						{
-							!IsLogin ?
-								<Link to='/login'>
-									<HeadItem>
-										登录
-									</HeadItem>
-								</Link> :
-								<HeadItem onClick={this.props.logout}>
-									退出
-								</HeadItem>
-						}
+						{/*{*/}
+						{/*	!IsLogin ?*/}
+						{/*		<Link to='/login'>*/}
+						{/*			<HeadItem>*/}
+						{/*				登录*/}
+						{/*			</HeadItem>*/}
+						{/*		</Link> :*/}
+						{/*		<HeadItem onClick={this.props.logout}>*/}
+						{/*			退出*/}
+						{/*		</HeadItem>*/}
+						{/*}*/}
 					</Col>
 					<Col span={2}>
 						<Link to='/publish'>
@@ -186,7 +186,7 @@ class Header extends PureComponent {
 										清空
 									</Button>
 									<Button
-										onClick={() => this.formSubmit(note.get('lesson_id'), userId, note)} type="primary">
+										onClick={() => this.formSubmit(note.get('lesson_id'), userId, note)} type='primary'>
 										完成
 									</Button>
 								</div>
@@ -194,6 +194,7 @@ class Header extends PureComponent {
 							null
 					}
 				</Drawer>
+				<Divider style={{ marginTop: 10 }} />
 			</div>
 		)
 	}

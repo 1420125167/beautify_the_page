@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const MyImg = styled.div`
-    margin-left:40%;
-   
+  //margin-left:40%;
+  text-align: center;
 `;
 export const MyType = styled.div`
-margin-top:20px;
- margin-left:36%;
+  margin-top: 20px;
+  //margin-left:36%;
+  text-align: center;
 `;
 export const MyWrapper = styled.div`
- margin:10px auto;
+  margin: 10px auto;
 `;
 
 export const History = styled.div`

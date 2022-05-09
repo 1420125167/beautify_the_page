@@ -76,11 +76,11 @@ class My extends PureComponent {
 							<MyType>
 								{
 									name ? <Tag color="magenta">{name}</Tag> :
-										<Tag color="magenta">浮生若梦</Tag>
+										<Tag color='magenta'>未登录</Tag>
 								}
 								{
 									phone ? <Tag color="orange">{phone}</Tag> :
-										<Tag color="orange">17863957609</Tag>
+										<Tag color='orange'>未登录</Tag>
 								}
 							</MyType>
 						</MyWrapper>
