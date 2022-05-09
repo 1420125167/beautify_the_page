@@ -21,10 +21,12 @@ time, mark, audio, video {
 
 html, body {
     width: 99%;
+    /*width: expression(document.documentElement.clientWidth-17px);*/
+    /*width: window.innerWidth-1;*/
 }
 
 .ant-divider-horizontal {
-    width: 102%;
+    width: 101%;
 }
 
 /* HTML5 display-role reset for older browsers */

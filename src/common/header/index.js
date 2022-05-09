@@ -71,7 +71,7 @@ class Header extends PureComponent {
 		const editor = editorState ? editorState : editorState1;
 		return (
 			<div>
-				<Row className='header' gutter={4} style={{ marginTop: 5 }}>
+				<Row className='header' gutter={4} style={{ marginTop: 5, width: window.innerWidth - 17 }}>
 					<Col span={1}>
 						<Link to='/'>
 							<Logo />
@@ -122,13 +122,6 @@ class Header extends PureComponent {
 					</Col>
 					<Col span={1} offset={1}>
 						<AvatarMenu />
-						{/*<Link to="/my">*/}
-						{/*	<MyHome>*/}
-						{/*		<Tooltip placement="bottom" title={name ? name : "未登录"}>*/}
-						{/*			<Avatar size="large" src={img ? img : MyPic}/>*/}
-						{/*		</Tooltip>*/}
-						{/*	</MyHome>*/}
-						{/*</Link>*/}
 					</Col>
 				</Row>
 				<Drawer
@@ -178,7 +171,7 @@ class Header extends PureComponent {
 									}}
 								>
 									<Button
-										style={{marginRight: 8,}}
+										style={{ marginRight: 8 }}
 										onClick={this.handleClearContent}
 									>
 										清空
@@ -192,7 +185,7 @@ class Header extends PureComponent {
 							null
 					}
 				</Drawer>
-				<Divider style={{ marginTop: 5 }} />
+				<Divider style={{ marginTop: 5, width: window.innerWidth - 17 }} />
 			</div>
 		)
 	}

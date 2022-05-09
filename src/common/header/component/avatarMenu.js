@@ -5,15 +5,12 @@ import { MyHome } from '../style'
 import MyPic from '../../../statics/my.jpg'
 import { DownOutlined } from '@ant-design/icons'
 
-const onClick = ({ key }) => {
-	message.info(`Click on item ${key}`)
-}
 const menu = (
 	<Menu
-		onClick={onClick}
 		items={[
 			{
-				label: '1st menu item',
+				// label: <a href={'/my'}>个人空间</a>,
+				label: <Link to={'/my'}>个人空间</Link>,
 				key: '1',
 			},
 		]}
@@ -25,7 +22,6 @@ class AvatarMenu extends Component {
 	render() {
 		const { img, name } = this.props
 		return (
-			<Link to='/my'>
 				<Dropdown overlay={menu}
 									placement='bottom'
 									arrow={{ pointAtCenter: true }}>
@@ -33,7 +29,6 @@ class AvatarMenu extends Component {
 						<Avatar style={{ marginTop: 5 }} size='large' src={img ? img : MyPic} />
 					</a>
 				</Dropdown>
-			</Link>
 		)
 	}
 }
