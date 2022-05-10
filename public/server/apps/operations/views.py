@@ -380,8 +380,8 @@ def SearchSubmitView(request):
 @api_view(['GET','POST'])
 def UserNotebookView(request):
     if request.method == 'GET':
-        user_id = request.GET['userid']
-        lesson_id = request.GET['classid']
+        user_id = request.GET.get('userid')
+        lesson_id = request.GET.get('classid')
         note_info = UserNotebook.objects.filter(user_id=user_id,lesson_id=lesson_id).first()
         note_serializer = UserNotebookSerializer(note_info)
         note_res = {
@@ -390,8 +390,10 @@ def UserNotebookView(request):
         }
         return Response(note_res)
     elif request.method == 'POST':
-        user_id = request.data['user_id']
-        lesson_id = request.data['lesson_id']
+#         user_id = request.data.get('userid')
+#         lesson_id = request.data.get('lesson_id')
+        user_id = request.POST.get('userid')
+        lesson_id = request.POST.get('lesson_id')
         note_serializer = SubmitNotebookSerializer(data=request.data)
         if note_serializer.is_valid():
             note_info = UserNotebook.objects.filter(user_id=user_id, lesson_id=lesson_id).first()

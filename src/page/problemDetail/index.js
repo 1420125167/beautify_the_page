@@ -187,13 +187,9 @@ const mapDispatch = (dispatch) => ({
 		}).then((res) => {
 			const result = res.data.data;
 			if (res.data.success) {
-				if (result.sendMsg) {
-					message.success("发布成功");
-					dispatch(actionCreators.loadProblem(problemId))
-					dispatch(loginActionCreators.changeScore(userId, score + 10))
-				} else {
-					message.error("发布失败");
-				}
+				message.success('发布成功')
+				dispatch(actionCreators.loadProblem(problemId))
+				dispatch(loginActionCreators.changeScore(userId, score + 10))
 			}
 		})
 	},
