@@ -18,7 +18,7 @@ export const loadProblemData = () => {
 			.then((res) => {
 				const result = res.data.data;
 				if (res.data.success) {
-					console.log(result);
+					// console.log(result);
 					dispatch(loadProblem(result))
 				}
 			})
@@ -30,7 +30,7 @@ export const loadSearchData = (searchValue) => {
 			.then((res) => {
 				const result = res.data.data;
 				if (res.data.success) {
-					console.log(result);
+					// console.log(result);
 					dispatch(loadProblem(result))
 				}
 			})

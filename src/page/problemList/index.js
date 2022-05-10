@@ -34,7 +34,7 @@ class ProblemList extends PureComponent {
 				}
 			}
 		}
-		console.log(list);
+		// console.log(list);
 		const problem = fromJS(list);
 		return (
 			<div>
