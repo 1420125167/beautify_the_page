@@ -29,8 +29,8 @@ class Publish extends PureComponent {
 	};
 	
 	handleChange = ({fileList}) => {
-		//   console.log({fileList});
-		this.setState({fileList})
+		console.log({ fileList })
+		this.setState({ fileList })
 	};
 	
 	handleInputChange = (e) => {

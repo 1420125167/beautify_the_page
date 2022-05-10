@@ -80,8 +80,9 @@ class ClassDetail extends PureComponent {
 	
 	formSubmit(userId, note) {
 		// 转换成HTML格式
-		const editorContent = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
-		this.props.submitNote(note.get('id'), userId, this.props.match.params.classid, editorContent);
+		console.log(this.state.editorState)
+		// const editorContent = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
+		// this.props.submitNote(note.get('id'), userId, this.props.match.params.classid, editorContent);
 	}
 	
 	render() {

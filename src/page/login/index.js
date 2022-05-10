@@ -53,12 +53,13 @@ class Login extends PureComponent {
 									<Link to="/modify"><span className="forget">忘记密码</span></Link>
 								</LoginItem>
 								<LoginBottom>
-									<Button type="primary" htmlType="submit" className="login-form-button"
-													onClick={() => login(this.account, this.password)}>
+									<Button type='primary' htmlType='submit' className='login-form-button'
+													onClick={() => login(this.account.input.value, this.password.input.value)}>
+										{/*onClick={() => console.log(this.account.input.value + this.password.input.value)}>*/}
 										登录
 									</Button>
-									<Link to="/register">
-										<Button type="primary" htmlType="submit" className="register-form-button ">
+									<Link to='/register'>
+										<Button type='primary' htmlType='submit' className='register-form-button '>
 											注册
 										</Button>
 									</Link>
@@ -80,7 +81,10 @@ const mapState = (state) => ({
 });
 const mapDispatch = (dispatch) => ({
 	login(accountElement, passwordElem) {
-		dispatch(actionCreators.login(accountElement.state.value, passwordElem.state.value))
+		// console.log(accountElement)
+		// console.log(passwordElem)
+		dispatch(actionCreators.login(accountElement, passwordElem))
+		// dispatch(actionCreators.login(accountElement.state.value, passwordElem.state.value))
 	},
 	handleClose() {
 		dispatch(actionCreators.closeAlert())

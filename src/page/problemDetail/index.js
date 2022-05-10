@@ -178,9 +178,8 @@ const mapDispatch = (dispatch) => ({
 		dispatch(actionCreators.changePraise(praise, commentId, userId))
 	},
 	submitComment(comment, problemId, userId, userName, problemTitle, score) {
-		dispatch(actionCreators.submitComment("yangfan", userId, problemId))
+		dispatch(actionCreators.submitComment(comment.resizableTextArea.textArea.value, userId, problemId))
 		const content = userName + "回复了你的问题:" + problemTitle + ",快去看看吧";
-		console.log(userId, content);
 		axios.post('http://localhost:8000/sendmessage/', {
 			user_id: userId,
 			message_title: "问题回复",
@@ -188,13 +187,9 @@ const mapDispatch = (dispatch) => ({
 		}).then((res) => {
 			const result = res.data.data;
 			if (res.data.success) {
-				if (result.sendMsg) {
-					message.success("发布成功");
-					dispatch(actionCreators.loadProblem(problemId));
-					dispatch(loginActionCreators.changeScore(score + 10));
-				} else {
-					message.error("发布失败");
-				}
+				message.success('发布成功')
+				dispatch(actionCreators.loadProblem(problemId))
+				dispatch(loginActionCreators.changeScore(userId, score + 10))
 			}
 		})
 	},

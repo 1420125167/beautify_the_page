@@ -6,15 +6,13 @@ import { SearchWrapper } from '../style'
 import { Button, Input, AutoComplete, Select } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 
-// const Option = AutoComplete.Option
-// const OptGroup = AutoComplete.OptGroup
 // TODO: Repair the search engine
 const { Option, OptGroup } = Select
 
 function renderOption(item) {
 	return (
 		<OptGroup label={<span>{item.get('type')}</span>}>
-			<Option value={item.get('keyword')}>
+			<Option value={item.get('keyword')} key={Math.random()}>
 				<Link to={'/searchlist/' + item.get('type_e') + '/' + item.get('keyword')}>
 					<span className='certain-search-item-count'>{item.get('msgNum')} 条搜索记录</span>
 				</Link>
