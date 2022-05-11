@@ -49,11 +49,11 @@ class SearchInput extends PureComponent {
 					>
 						<Input
 							suffix={(
-								<Link to={"/problemlist/" + this.state.input}>
-									<Button className='search-btn' size='large' type='primary'>
-										{/*<Icon type="search"/>*/}
-										<SearchOutlined />
-									</Button>
+								<Link to={'/problemlist/' + this.state.input}>
+									{/*<Button className='search-btn' size='large' type='primary'>*/}
+									{/*	<Icon type="search"/>*/}
+									{/*	<SearchOutlined />*/}
+									{/*</Button>*/}
 								</Link>
 							)}
 						/>
