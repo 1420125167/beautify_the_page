@@ -27,7 +27,8 @@ export const changeNoteNum = (id) => ({
 export const searchInfo = (value) => {
 	return (dispatch) => {
 		axios.defaults.headers = {
-			"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+			// "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+			'Content-Type': 'application/json;charset=UTF-8',
 		};
 		axios.get('http://localhost:8000/searchinfo/?searchinfo=' + value).then((res) => {
 			const result = res.data.data;
@@ -37,8 +38,12 @@ export const searchInfo = (value) => {
 };
 export const searchSubmit = (value) => {
 	return (dispatch) => {
+		axios.defaults.headers = {
+			// "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+			'Content-Type': 'application/json;charset=UTF-8',
+		}
 		axios.get('http://localhost:8000/searchinfo/?searchinfo=' + value).then((res) => {
-			const result = res.data.data;
+			const result = res.data.data
 			dispatch(getSearchSubmit(result))
 		})
 	}

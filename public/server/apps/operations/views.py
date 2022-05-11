@@ -335,6 +335,8 @@ def SearchSubmitView(request):
     if request.method == 'POST':
         keyword = request.data['keyword']
         type = request.data['type']
+#         keyword = request.POST.getlist('keyword')
+#         type = request.POST.getlist('type')
         if type == "class":
             chapter_info = Chapter.objects.filter(chapter_name__contains=keyword)
             chapter_serializer = ChapterSerializer(chapter_info, many=True)

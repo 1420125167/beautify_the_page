@@ -49,11 +49,11 @@ class SearchInput extends PureComponent {
 					>
 						<Input
 							suffix={(
-								<Link to={"/problemlist/" + this.state.input}>
-									<Button className='search-btn' size='large' type='primary'>
-										{/*<Icon type="search"/>*/}
-										<SearchOutlined />
-									</Button>
+								<Link to={'/problemlist/' + this.state.input}>
+									{/*<Button className='search-btn' size='large' type='primary'>*/}
+									{/*	<Icon type="search"/>*/}
+									{/*	<SearchOutlined />*/}
+									{/*</Button>*/}
 								</Link>
 							)}
 						/>
@@ -72,8 +72,8 @@ const mapDispatch = (dispatch) => ({
 		dispatch(actionCreators.searchInfo(value))
 	},
 	handleSubmit(input) {
-		console.log(input);
-		dispatch(actionCreators.searchSubmit())
+		// console.log(input);
+		dispatch(actionCreators.searchSubmit(input))
 	}
 	
 });

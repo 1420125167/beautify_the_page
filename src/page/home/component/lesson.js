@@ -21,15 +21,6 @@ class Lesson extends PureComponent {
 		const { problemData, classList, chapterList, onOpenChange, openKey } = this.props
 		return (
 			<div>
-				<List
-					style={{ marginTop: 10 }}
-					itemLayout={'vertical'}
-					size={'large'}
-					dataSource={classList}
-					renderItem={item => (
-						<Link to={'/classdetail/' + item.get('id') + '/' + item.get('id')}>{item.get('chapter_name')}</Link>)
-					}
-				/>
 				<Menu
 					mode='inline'
 					onOpenChange={onOpenChange}
@@ -40,7 +31,6 @@ class Lesson extends PureComponent {
 						classList.map((item1) => (
 							<SubMenu
 								key={item1.get('id')}
-								// title={<span><Icon type='mail' /><span>{item1.get('lesson_name')}</span></span>}
 								title={<span><MailOutlined /><span>{item1.get('lesson_name')}</span></span>}
 							>
 								{

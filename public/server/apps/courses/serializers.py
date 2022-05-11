@@ -30,6 +30,7 @@ class ChapterSerializer(serializers.ModelSerializer):
             'chapter_num',
             'chapter_name',
             'chapter_intro',
+            "lesson_id_id"
         )
 
 
