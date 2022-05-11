@@ -14,15 +14,15 @@ const LoadSearchList = (data) => ({
 
 export const loadSearchListData = (type, keyword) => {
 	return (dispatch) => {
-		axios.post('http://localhost:8000/searchsubmit/', {
+		axios.post('http://localhost:8000/searchsubmit/', JSON.stringify({
 			type,
-			keyword
-		}).then((res) => {
-			const result = res.data.data;
+			keyword,
+		})).then((res) => {
+			const result = res.data.data
 			if (res.data.success) {
 				dispatch(LoadSearchList(result))
 			} else {
-				console.log("登录失败");
+				console.log('登录失败')
 			}
 		})
 	}

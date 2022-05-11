@@ -72,8 +72,8 @@ const mapDispatch = (dispatch) => ({
 		dispatch(actionCreators.searchInfo(value))
 	},
 	handleSubmit(input) {
-		console.log(input);
-		dispatch(actionCreators.searchSubmit())
+		// console.log(input);
+		dispatch(actionCreators.searchSubmit(input))
 	}
 	
 });

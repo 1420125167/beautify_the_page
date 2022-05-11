@@ -71,7 +71,6 @@ class SearchList extends Component {
 	
 	componentDidMount() {
 		this.props.loadSearchListData(this.props.match.params.type, this.props.match.params.search)
-		console.log(this.props.match.params.type, this.props.match.params.search)
 	}
 }
 
