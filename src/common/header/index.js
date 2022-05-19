@@ -117,12 +117,12 @@ class Header extends PureComponent {
 							<span>{score ? score : 0}</span>
 						</HeadItem>
 					</Col>
-					<Col span={1}>
-						<Note onClick={this.showDrawer}>
-							<i className='iconfont' style={{ fontSize: 28 }}>&#xe896;</i>
-							{/*<Icon type="book" />*/}
-						</Note>
-					</Col>
+					{/*<Col span={1}>*/}
+					{/*	<Note onClick={this.showDrawer}>*/}
+					{/*		<i className='iconfont' style={{ fontSize: 28 }}>&#xe896;</i>*/}
+					{/*		/!*<Icon type="book" />*!/*/}
+					{/*	</Note>*/}
+					{/*</Col>*/}
 					<Col span={1}>
 						<Badge count={messageNum ? messageNum : 0} style={{ marginTop: 10 }}>
 							<Msg>
@@ -133,71 +133,71 @@ class Header extends PureComponent {
 							</Msg>
 						</Badge>
 					</Col>
-					<Col span={1} offset={1}>
+					<Col span={2} offset={1}>
 						<AvatarMenu />
 					</Col>
 				</Row>
-				<Drawer
-					title="笔记板"
-					width={400}
-					closable={false}
-					onClose={this.onClose}
-					visible={this.state.visible}
-				>
-					{
-						classState.map((item) => (
-							<NextNote key={item.get('id')}>
-								<Button type="primary" onClick={() => this.showChildrenDrawer(userId, item.get('id'))}>
-									{item.get("lesson_name")}
-								</Button>
-							</NextNote>
-						))
-					}
-					{
-						note.get('lesson_name') ?
-							<Drawer
-								title={note.get('lesson_name') + "笔记"}
-								width={320}
-								closable={false}
-								onClose={this.onChildrenDrawerClose}
-								visible={this.state.childrenDrawer}
-							>
-								{/*<div dangerouslySetInnerHTML={{__html:!content?note.get('notebook_content'):content}}>*/}
-								
-								{/*</div>*/}
-								<Editor
-									editorState={editor}
-									onEditorStateChange={this.onEditorStateChang}
-								/>
-								
-								<div
-									style={{
-										position: 'absolute',
-										bottom: 0,
-										width: '100%',
-										borderTop: '1px solid #e8e8e8',
-										padding: '10px 16px',
-										textAlign: 'right',
-										left: 0,
-										background: '#fff',
-										borderRadius: '0 0 4px 4px',
-									}}
-								>
-									<Button
-										style={{ marginRight: 8 }}
-										onClick={this.handleClearContent}
-									>
-										清空
-									</Button>
-									<Button
-										onClick={() => this.formSubmit(note.get('lesson_id'), userId, note)} type='primary'>
-										完成
-									</Button>
-								</div>
-							</Drawer> :
-							null
-					}
-				</Drawer>
+				{/*<Drawer*/}
+				{/*	title="笔记板"*/}
+				{/*	width={400}*/}
+				{/*	closable={false}*/}
+				{/*	onClose={this.onClose}*/}
+				{/*	visible={this.state.visible}*/}
+				{/*>*/}
+				{/*	{*/}
+				{/*		classState.map((item) => (*/}
+				{/*			<NextNote key={item.get('id')}>*/}
+				{/*				<Button type="primary" onClick={() => this.showChildrenDrawer(userId, item.get('id'))}>*/}
+				{/*					{item.get("lesson_name")}*/}
+				{/*				</Button>*/}
+				{/*			</NextNote>*/}
+				{/*		))*/}
+				{/*	}*/}
+				{/*	{*/}
+				{/*		note.get('lesson_name') ?*/}
+				{/*			<Drawer*/}
+				{/*				title={note.get('lesson_name') + "笔记"}*/}
+				{/*				width={320}*/}
+				{/*				closable={false}*/}
+				{/*				onClose={this.onChildrenDrawerClose}*/}
+				{/*				visible={this.state.childrenDrawer}*/}
+				{/*			>*/}
+				{/*				/!*<div dangerouslySetInnerHTML={{__html:!content?note.get('notebook_content'):content}}>*!/*/}
+				{/*				*/}
+				{/*				/!*</div>*!/*/}
+				{/*				<Editor*/}
+				{/*					editorState={editor}*/}
+				{/*					onEditorStateChange={this.onEditorStateChang}*/}
+				{/*				/>*/}
+				{/*				*/}
+				{/*				<div*/}
+				{/*					style={{*/}
+				{/*						position: 'absolute',*/}
+				{/*						bottom: 0,*/}
+				{/*						width: '100%',*/}
+				{/*						borderTop: '1px solid #e8e8e8',*/}
+				{/*						padding: '10px 16px',*/}
+				{/*						textAlign: 'right',*/}
+				{/*						left: 0,*/}
+				{/*						background: '#fff',*/}
+				{/*						borderRadius: '0 0 4px 4px',*/}
+				{/*					}}*/}
+				{/*				>*/}
+				{/*					<Button*/}
+				{/*						style={{ marginRight: 8 }}*/}
+				{/*						onClick={this.handleClearContent}*/}
+				{/*					>*/}
+				{/*						清空*/}
+				{/*					</Button>*/}
+				{/*					<Button*/}
+				{/*						onClick={() => this.formSubmit(note.get('lesson_id'), userId, note)} type='primary'>*/}
+				{/*						完成*/}
+				{/*					</Button>*/}
+				{/*				</div>*/}
+				{/*			</Drawer> :*/}
+				{/*			null*/}
+				{/*	}*/}
+				{/*</Drawer>*/}
 				<Divider style={{ marginTop: 5, width: window.innerWidth - 17 }} />
 			</div>
 		)

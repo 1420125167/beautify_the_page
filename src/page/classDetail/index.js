@@ -220,43 +220,43 @@ class ClassDetail extends PureComponent {
 					}
 				</Row>
 				
-				<Affix style={{position: 'absolute', top: "50%", right: 50}}>
-					<div onClick={this.showDrawer} style={{ cursor: 'pointer' }}>
-						{/*<Icon type="book" theme="twoTone" style={{fontSize: '32px', color: '#08c'}}/>*/}
-						<BookTwoTone />
-						<p style={{ fontSize: '10px', textAlign: 'center' }}>笔记</p>
-					</div>
-				</Affix>
-				<Drawer
-					title={note.get('lesson_name') ? note.get('lesson_name') + "笔记" : "笔记"}
-					placement="right"
-					closable={false}
-					onClose={this.onClose}
-					visible={this.state.visible}
-					width={500}
-				>
-					{userId ?
-						<div>
-							<Editor
-								editorState={editor}
-								onEditorStateChange={this.onEditorStateChang}
-							/>
-							<Button
-								style={{marginRight: 8,}}
-								onClick={this.handleClearContent}
-							>
-								清空
-							</Button>
-							<Button
-								onClick={() => this.formSubmit(userId, note)} type="primary">
-								完成
-							</Button>
-						</div> : null
-					}
+				{/*<Affix style={{position: 'absolute', top: "50%", right: 50}}>*/}
+				{/*	<div onClick={this.showDrawer} style={{ cursor: 'pointer' }}>*/}
+				{/*		/!*<Icon type="book" theme="twoTone" style={{fontSize: '32px', color: '#08c'}}/>*!/*/}
+				{/*		<BookTwoTone />*/}
+				{/*		<p style={{ fontSize: '10px', textAlign: 'center' }}>笔记</p>*/}
+				{/*	</div>*/}
+				{/*</Affix>*/}
+				{/*<Drawer*/}
+				{/*	title={note.get('lesson_name') ? note.get('lesson_name') + "笔记" : "笔记"}*/}
+				{/*	placement="right"*/}
+				{/*	closable={false}*/}
+				{/*	onClose={this.onClose}*/}
+				{/*	visible={this.state.visible}*/}
+				{/*	width={500}*/}
+				{/*>*/}
+				{/*	{userId ?*/}
+				{/*		<div>*/}
+				{/*			<Editor*/}
+				{/*				editorState={editor}*/}
+				{/*				onEditorStateChange={this.onEditorStateChang}*/}
+				{/*			/>*/}
+				{/*			<Button*/}
+				{/*				style={{marginRight: 8,}}*/}
+				{/*				onClick={this.handleClearContent}*/}
+				{/*			>*/}
+				{/*				清空*/}
+				{/*			</Button>*/}
+				{/*			<Button*/}
+				{/*				onClick={() => this.formSubmit(userId, note)} type="primary">*/}
+				{/*				完成*/}
+				{/*			</Button>*/}
+				{/*		</div> : null*/}
+				{/*	}*/}
 				
 				
-				</Drawer>
-				<BackTop/>
+				{/*</Drawer>*/}
+				<BackTop />
 			</div>)
 		
 		

@@ -180,11 +180,11 @@ const mapState = (state) => ({
 });
 const mapDispatch = (dispatch) => ({
 	handleNextStep(step, accountElem, pwdElem, afPwdElem, nickNameElem, img) {
-		console.log(step)
-		const account = accountElem.state.value;
-		const pwd = pwdElem.state.value;
-		const afPwd = afPwdElem.state.value;
-		const nickName = nickNameElem.state.value;
+		console.log(accountElem.input.value)
+		const account = accountElem.input.value
+		const pwd = pwdElem.input.value
+		const afPwd = afPwdElem.input.value
+		const nickName = nickNameElem.input.value
 		console.log()
 		if (pwd !== afPwd)
 			message.warning('两次密码不一致')
@@ -203,7 +203,7 @@ const mapDispatch = (dispatch) => ({
 		dispatch(actionCreators.backStep(step - 1))
 	},
 	checkCode(codeElem, code, phone, pwd, img, nikeName) {
-		const afCode = codeElem.state.value;
+		const afCode = codeElem.input.value
 		console.log(afCode, code);
 		if (afCode === code)
 			dispatch(actionCreators.register(phone, pwd, img, nikeName));
