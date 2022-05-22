@@ -19,8 +19,10 @@ import Resource from './page/resource';
 import My from './page/my';
 import MsgList from './page/MsgList';
 import Modify from './page/modify';
-import SearchList from './page/searchList';
-import './statics/iconfont/iconfont.css';
+import SearchList from './page/searchList'
+import Code from './page/Code'
+import './statics/iconfont/iconfont.css'
+
 
 class App extends PureComponent {
   render() {
@@ -43,7 +45,8 @@ class App extends PureComponent {
             <Route path="/msg" exact component={MsgList}/>
             <Route path="/publish" exact component={Publish}/>
             <Route path="/modify" exact component={Modify}/>
-            <Route path="/resource" exact component={Resource}/>
+						<Route path='/resource' exact component={Resource} />
+						<Route path='/code' exact component={Code} />
           </div>
         </BrowserRouter>
       </Provider>
