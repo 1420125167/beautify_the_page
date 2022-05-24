@@ -145,7 +145,7 @@ class UserNotebookSerializer(serializers.ModelSerializer):
 
 
 class SubmitNotebookSerializer(serializers.ModelSerializer):
-    #lesson_name = serializers.CharField(source='lesson_id.lesson_name')
+#     lesson_name = serializers.CharField(source='lesson_id.lesson_name')
     class Meta:
         # 指定序列化器需要作用的模型
         model = UserNotebook

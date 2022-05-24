@@ -31,7 +31,8 @@ import {
 } from './style';
 import LeftMenu from '../../common/leftMenu';
 import Header from '../../common/header/index';
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { submitNote } from '../../common/header/store/actionCreators'
 
 const {TextArea} = Input;
 
@@ -80,9 +81,9 @@ class ClassDetail extends PureComponent {
 	
 	formSubmit(userId, note) {
 		// 转换成HTML格式
-		console.log(this.state.editorState)
-		// const editorContent = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
-		// this.props.submitNote(note.get('id'), userId, this.props.match.params.classid, editorContent);
+		// console.log(this.state.editorState)
+		const editorContent = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
+		this.props.submitNote(note.get('id'), userId, this.props.match.params.classid, editorContent)
 	}
 	
 	render() {
@@ -220,42 +221,43 @@ class ClassDetail extends PureComponent {
 					}
 				</Row>
 				
-				{/*<Affix style={{position: 'absolute', top: "50%", right: 50}}>*/}
-				{/*	<div onClick={this.showDrawer} style={{ cursor: 'pointer' }}>*/}
-				{/*		/!*<Icon type="book" theme="twoTone" style={{fontSize: '32px', color: '#08c'}}/>*!/*/}
-				{/*		<BookTwoTone />*/}
-				{/*		<p style={{ fontSize: '10px', textAlign: 'center' }}>笔记</p>*/}
-				{/*	</div>*/}
-				{/*</Affix>*/}
-				{/*<Drawer*/}
-				{/*	title={note.get('lesson_name') ? note.get('lesson_name') + "笔记" : "笔记"}*/}
-				{/*	placement="right"*/}
-				{/*	closable={false}*/}
-				{/*	onClose={this.onClose}*/}
-				{/*	visible={this.state.visible}*/}
-				{/*	width={500}*/}
-				{/*>*/}
-				{/*	{userId ?*/}
-				{/*		<div>*/}
-				{/*			<Editor*/}
-				{/*				editorState={editor}*/}
-				{/*				onEditorStateChange={this.onEditorStateChang}*/}
-				{/*			/>*/}
-				{/*			<Button*/}
-				{/*				style={{marginRight: 8,}}*/}
-				{/*				onClick={this.handleClearContent}*/}
-				{/*			>*/}
-				{/*				清空*/}
-				{/*			</Button>*/}
-				{/*			<Button*/}
-				{/*				onClick={() => this.formSubmit(userId, note)} type="primary">*/}
-				{/*				完成*/}
-				{/*			</Button>*/}
-				{/*		</div> : null*/}
-				{/*	}*/}
+				<Affix style={{ position: 'absolute', top: '50%', right: 50 }}>
+					<div onClick={this.showDrawer} style={{ cursor: 'pointer' }}>
+						{/*<Icon type="book" theme="twoTone" style={{fontSize: '32px', color: '#08c'}}/>*/}
+						<BookTwoTone />
+						<p style={{ fontSize: '10px', textAlign: 'center' }}>笔记</p>
+					</div>
+				</Affix>
+				<Drawer
+					title={note.get('lesson_name') ? note.get('lesson_name') + '笔记' : '笔记'}
+					placement='right'
+					closable={false}
+					onClose={this.onClose}
+					visible={this.state.visible}
+					width={500}
+				>
+					{userId ?
+						<div>
+							<Editor
+								editorState={editor}
+								onEditorStateChange={this.onEditorStateChang}
+							/>
+							<Button
+								style={{ marginRight: 8 }}
+								onClick={this.handleClearContent}
+							>
+								清空
+							</Button>
+							<Button
+								// onClick={() => this.formSubmit(userId, note)} type="primary">
+								onClick={() => submitNote(note.get('lesson_id'), userId, note)} type='primary'>
+								完成
+							</Button>
+						</div> : null
+					}
 				
 				
-				{/*</Drawer>*/}
+				</Drawer>
 				<BackTop />
 			</div>)
 		

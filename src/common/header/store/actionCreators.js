@@ -67,10 +67,14 @@ export const loadNote = (id, classId) => {
 
 export const submitNote = (id, classId, content) => {
 	return (dispatch) => {
+		axios.defaults.headers = {
+			// "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+			'Content-Type': 'application/json;charset=UTF-8',
+		}
 		axios.post('http://localhost:8000/notebook/', {
 			user_id: id,
 			lesson_id: classId,
-			notebook_content: content
+			notebook_content: content,
 		}).then((res) => {
 			if (res.data.success)
 				loadNote(id, classId)
