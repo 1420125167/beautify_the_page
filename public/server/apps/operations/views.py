@@ -392,15 +392,16 @@ def UserNotebookView(request):
         }
         return Response(note_res)
     elif request.method == 'POST':
-#         user_id = request.data.get('userid')
-#         lesson_id = request.data.get('lesson_id')
-        user_id = request.POST.get('userid')
-        lesson_id = request.POST.get('lesson_id')
+        user_id = request.data.get('user_id')
+        lesson_id = request.data.get('lesson_id')
+#         user_id = request.POST.get('userid')
+#         lesson_id = request.POST.get('lesson_id')
         notebook_content = request.POST.get('notebook_content')
         note_serializer = SubmitNotebookSerializer(data=request.data)
         if note_serializer.is_valid():
             note_info = UserNotebook.objects.filter(user_id=user_id, lesson_id=lesson_id).first()
-#             note_info.delete()
+            if note_info :
+                note_info.delete()
             note_serializer.save()
             note_res = {
                 "success":True,

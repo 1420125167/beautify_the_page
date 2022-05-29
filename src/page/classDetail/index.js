@@ -249,8 +249,8 @@ class ClassDetail extends PureComponent {
 								清空
 							</Button>
 							<Button
-								// onClick={() => this.formSubmit(userId, note)} type="primary">
-								onClick={() => submitNote(note.get('lesson_id'), userId, note)} type='primary'>
+								onClick={() => this.formSubmit(userId, note)} type='primary'>
+								{/*onClick={() => submitNote(note.get('lesson_id'), userId, note)} type='primary'>*/}
 								完成
 							</Button>
 						</div> : null
