@@ -1,33 +1,33 @@
 .carouselLeftButton {
-  margin-top: 119px;
-  width: 42px;
-  height: 42px;
+  /*margin-top: 30px;*/
+  width: 60px;
+  height: 500px;
   z-index: 999;
   border: none;
   outline: 0;
   padding: 0;
   background-color: #fff;
-  border-radius: 50%;
-  opacity: 0.2;
+  /*border-radius: 50%;*/
+  opacity: 0.4;
   position: absolute;
 }
 
 .carouselLeftButton:hover {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .carouselRightButton {
-  margin-top: 119px;
+  /*margin-top: 30px;*/
   margin-right: 30px;
-  width: 42px;
-  height: 42px;
+  width: 60px;
+  height: 500px;
   z-index: 999;
   border: none;
   outline: 0;
   padding: 0;
   background-color: #fff;
-  border-radius: 50%;
-  opacity: 0.2;
+  /*border-radius: 50%;*/
+  opacity: 0.4;
   position: absolute;
 }
 
