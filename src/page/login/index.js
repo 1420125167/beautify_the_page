@@ -1,90 +1,107 @@
-import React, { PureComponent } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import * as React from 'react'
+import Avatar from '@mui/material/Avatar'
+import Button from '@mui/material/Button'
+import CssBaseline from '@mui/material/CssBaseline'
+import TextField from '@mui/material/TextField'
+import Link from '@mui/material/Link'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
+import Typography from '@mui/material/Typography'
+import Container from '@mui/material/Container'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Row, Col, Input, Button, Checkbox, Alert } from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import { LoginWrapper, LoginLogo, LoginTitle, LoginBottom, LoginItem, Wrapper } from './style'
 import { actionCreators } from './store'
-import LogoPic from '../../statics/logo.png'
+import { PureComponent } from 'react'
+
+const theme = createTheme()
 
 class Login extends PureComponent {
+	handleOnChange = event => {
+		this.account = event.target.value
+		console.log(this.account)
+	}
+	
 	render() {
 		const { loginStatue, login } = this.props
 		if (!loginStatue) {
 			return (
-				<div>
-					<Wrapper> </Wrapper>
-					<Row type="flex" justify="center">
-						<Col span={8}>
-							<LoginWrapper>
-								<LoginLogo src={LogoPic}/>
-								<LoginTitle>登录</LoginTitle>
-								<Input
-									style={{ marginTop: 20 }}
-									// prefix={<Icon type="user" style={{color: '#5eb2ff'}}/>}
-									prefix={<UserOutlined />}
-									placeholder='账号'
-									ref={input => {
-										this.account = input
+				<ThemeProvider theme={theme}>
+					<Container component='main' maxWidth='xs'>
+						<CssBaseline />
+						<Box
+							sx={{
+								marginTop: 8,
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'center',
+							}}
+						>
+							<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+								<LockOutlinedIcon />
+							</Avatar>
+							<Typography component='h1' variant='h5'>
+								登录
+							</Typography>
+							<Box component='form' noValidate sx={{ mt: 1 }}>
+								<TextField
+									margin='normal'
+									required
+									fullWidth
+									label='账号'
+									autoFocus
+									onChange={event => {
+										this.account = event.target.value
 									}}
 								/>
-								<Input
-									style={{ marginTop: 20 }}
-									// prefix={<Icon type="lock" style={{color: '#5eb2ff'}}/>}
-									prefix={<LockOutlined />}
+								<TextField
+									margin='normal'
+									required
+									fullWidth
+									label='密码'
 									type='password'
-									placeholder='密码'
-									ref={input => {
-										this.password = input
+									onChange={event => {
+										this.password = event.target.value
 									}}
 								/>
-								{
-									this.props.alert ? (
-										<Alert
-											message="账号密码错误"
-											type="error"
-											closable
-											afterClose={this.props.handleClose}
-										/>
-									) : null
-								}
-								<LoginItem>
-									<Checkbox>记住我</Checkbox>
-									<Link to="/modify"><span className="forget">忘记密码</span></Link>
-								</LoginItem>
-								<LoginBottom>
-									<Button type='primary' htmlType='submit' className='login-form-button'
-													onClick={() => login(this.account.input.value, this.password.input.value)}>
-										{/*onClick={() => console.log(this.account.input.value + this.password.input.value)}>*/}
-										登录
-									</Button>
-									<Link to='/register'>
-										<Button type='primary' htmlType='submit' className='register-form-button '>
+								<Button
+									fullWidth
+									variant='contained'
+									sx={{ mt: 3, mb: 2 }}
+									onClick={() => login(this.account, this.password)}
+								>
+									登录
+								</Button>
+								<Grid container>
+									<Grid item xs>
+										<Link href='/modify' variant='body2'>
+											忘记密码
+										</Link>
+									</Grid>
+									<Grid item>
+										<Link href='/register' variant='body2'>
 											注册
-										</Button>
-									</Link>
-								</LoginBottom>
-							</LoginWrapper>
-						</Col>
-					</Row>
-				</div>
+										</Link>
+									</Grid>
+								</Grid>
+							</Box>
+						</Box>
+					</Container>
+				</ThemeProvider>
 			)
 		} else {
 			return <Redirect to='/'/>
 		}
 	}
 }
-
 const mapState = (state) => ({
 	loginStatue: state.getIn(['login', 'login']),
 	alert: state.getIn(['login', 'alert'])
 });
 const mapDispatch = (dispatch) => ({
 	login(accountElement, passwordElem) {
-		// console.log(accountElement)
-		// console.log(passwordElem)
 		dispatch(actionCreators.login(accountElement, passwordElem))
-		// dispatch(actionCreators.login(accountElement.state.value, passwordElem.state.value))
 	},
 	handleClose() {
 		dispatch(actionCreators.closeAlert())

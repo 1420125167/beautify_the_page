@@ -6,7 +6,6 @@ import {actionCreators} from './store';
 import Bottom from '../../common/bottom';
 import New from './component/new'
 import Problem from './component/problem'
-import History from './component/rightnav'
 import LeftMenu from '../../common/leftMenu';
 import Header from '../../common/header';
 import Autoplay from './component/autoplay'
@@ -16,28 +15,32 @@ class Home extends PureComponent {
 	render() {
 		return (
 			<div>
-				<Header/>
+				<Header />
 				<Content>
-					<Row type="flex" gutter={40}>
-						<Col span={4}>
-							<LeftMenu/>
-						</Col>
-						<Col span={12}>
+					<Row type='flex' gutter={40} style={{ marginLeft: -49 }}>
+						{/*<Col span={4}>*/}
+						{/*<LeftMenu/>*/}
+						{/*</Col>*/}
+						<Col span={23} offset={1}>
 							<CenterContent>
-								<Autoplay/>
+								<Autoplay />
 								{/*<Problem/>*/}
-								<Lesson />
 							</CenterContent>
 						</Col>
-						<Col span={6}>
+					</Row>
+					<Row>
+						<Col span={8} offset={4}>
+							<Lesson />
+						</Col>
+						<Col span={6} offset={1}>
 							<RightContent>
 								{/*<History/>*/}
-								<New/>
+								<New />
 							</RightContent>
 						</Col>
 					</Row>
 				</Content>
-				<BackTop/>
+				<BackTop />
 				<Bottom/>
 			</div>
 		)

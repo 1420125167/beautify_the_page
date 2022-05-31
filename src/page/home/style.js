@@ -8,17 +8,21 @@ export const Content = styled.div`
    margin-top:15px;
 `;
 export const CenterContent = styled.div`
-   margin-right:10px;
-   .ant-carousel .slick-slide {
+  margin-right: 10px;
+
+  .ant-carousel .slick-slide {
     text-align: center;
-    height: 280px;
+    height: 500px;
     line-height: 280px;
     background: #364d79;
     overflow: hidden;
-}
-.ant-carousel .slick-slide h3 {
+  }
+
+  .ant-carousel .slick-slide h3 {
     color: #fff;
-}
+    height: 500px;
+    //text-align: center;
+  }
 `;
 export const RightContent = styled.div`
    margin-right:10px;

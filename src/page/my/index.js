@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Row, Col, Avatar, Tag, List, Progress, Divider, Modal, Upload, message, Popconfirm } from 'antd'
-import { MyImg, MyType, MyProblem, History, HistoryHead, MyWrapper, ProblemItem, ProblemHead } from './style'
+import { MyImg, MyType, MyProblem, MyWrapper, ProblemItem, ProblemHead, HistoryHead, History } from './style'
 import { actionCreators } from './store'
 import { actionCreators as loginActionCreators } from '../login/store'
 import axios from 'axios'
@@ -9,13 +9,28 @@ import LeftMenu from '../../common/leftMenu'
 import Header from '../../common/header/index'
 import MyPic from '../../statics/my.jpg'
 import { MessageOutlined, PlusOutlined } from '@ant-design/icons'
+import { Menu } from 'antd'
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons'
+import HomeCol from './component/HomeCol'
 
-// const IconText = ({type, text}) => (
-// 	<span>
-//     <Icon type={type} style={{marginRight: 8}}/>
-// 		{text}
-//   </span>
-// );
+function getItem(label, key, icon, children, type) {
+	return {
+		key,
+		icon,
+		children,
+		label,
+		type,
+	}
+}
+
+const items = [
+	// getItem('', 'sub1', <MailOutlined />, [
+	getItem('历史记录', '1'),
+	getItem('我的提问', '2'),
+	getItem('修改密码', '3'),
+	// ]),
+]
+
 
 class My extends PureComponent {
 	state = {
@@ -23,6 +38,7 @@ class My extends PureComponent {
 		previewVisible: false,
 		previewImage: '',
 		fileList: [],
+		currentSelect: '1',
 	}
 	handleCancel = () => this.setState({ previewVisible: false })
 	
@@ -30,19 +46,26 @@ class My extends PureComponent {
 		this.setState({
 			previewImage: file.url || file.thumbUrl,
 			previewVisible: true,
-		});
-	};
+		})
+	}
 	
-	handleChange = ({fileList}) => {
-		;
-		this.setState({fileList});
-	};
+	onClick = (e) => {
+		this.setState({
+			currentSelect: e.key,
+		})
+		console.log()
+	}
+	
+	
+	handleChange = ({ fileList }) => {
+		this.setState({ fileList })
+	}
 	
 	showModal = () => {
 		this.setState({
 			visible: true,
-		});
-	};
+		})
+	}
 	
 	hideModal = () => {
 		this.setState({
@@ -64,104 +87,54 @@ class My extends PureComponent {
 		const {previewVisible, previewImage, fileList} = this.state;
 		return (
 			<div>
-				<Header/>
-				<Row type="flex">
-					<Col span={4}>
-						<LeftMenu/>
+				<Header />
+				<Row>
+					<Col span={2}>
+						<LeftMenu />
 					</Col>
-					<Col span={15} offset={1}>
+					<Col offset={10}>
 						<MyWrapper>
 							<MyImg onClick={this.showModal}>
-								<Avatar size={72} src={img ? img : MyPic}/>
+								<Avatar size={72} src={img ? img : MyPic} />
 							</MyImg>
 							<MyType>
 								{
-									name ? <Tag color="magenta">{name}</Tag> :
+									name ? <Tag color='magenta'>{name}</Tag> :
 										<Tag color='magenta'>未登录</Tag>
 								}
 								{
-									phone ? <Tag color="orange">{phone}</Tag> :
+									phone ? <Tag color='orange'>{phone}</Tag> :
 										<Tag color='orange'>未登录</Tag>
 								}
 							</MyType>
 						</MyWrapper>
-						<History>
-							<HistoryHead>历史记录</HistoryHead>
-							<List
-								itemLayout="vertical"
-								size="large"
-								dataSource={history}
-								renderItem={item => (
-									<List.Item
-										key={item.get('id')}
-										actions={<span>{item.get("history_date")}</span>}
-										extra={<Progress type="circle"
-																		 percent={Math.ceil((
-																			 parseInt(item.get("chapter_num")) /
-																			 parseInt(item.get('chapter_sum'))
-																		 ) * 100)} width={58}/>}
-									>
-										<List.Item.Meta
-											avatar={<Avatar src={item.get("lesson_img")} size={58}/>}
-											title={<span>{item.get("lesson_name")}</span>}
-											description={item.get("chapter_name")}
-										/>
-										<Divider>{item.get("history_date")}</Divider>
-									</List.Item>
-								)}
-							/>
-						</History>
-						<MyProblem>
-							<ProblemHead>我的问题</ProblemHead>
-							<ProblemItem>
-								<List
-									pagination={true}
-									itemLayout="vertical"
-									dataSource={problem}
-									renderItem={item => (
-										<List.Item
-											actions={[
-												// <IconText type="message" text={item.get("comment_num")}/>,
-												<MessageOutlined style={{ marginRight: 8 }} type='message' text={item.get('comment_num')} />,
-												<span>{item.get('problem_date')}</span>]}
-											style={{ marginTop: 20 }}>
-											<List.Item.Meta
-												avatar={<Avatar src={item.getIn(['user', 'img'])} />}
-												title={<a href='https://ant.design'>{item.getIn(['user', 'name'])} </a>}
-												description={item.get('problem_title')}
-											/>
-											{item.get('problem_content')}
-											<p
-												style={{ float: 'right', cursor: 'pointer' }}
-												// onClick={()=>this.props.deleteProblem(item.get('id'),this.props.id)}
-											>
-												<Popconfirm
-													title="确定删除吗?"
-													onConfirm={() => this.confirm(item.get('id'), this.props.id)}
-													onCancel={this.cancel}
-													okText="Yes"
-													cancelText="No"
-												>
-													删除
-												</Popconfirm>
-											
-											</p>
-										</List.Item>
-									)}
-								/>
-							</ProblemItem>
-						</MyProblem>
+					</Col>
+				</Row>
+				<Row type='flex'>
+					<Col offset={3}>
+						<Menu
+							onClick={this.onClick}
+							style={{
+								width: 256,
+							}}
+							defaultSelectedKeys={['1']}
+							defaultOpenKeys={['sub1']}
+							mode='inline'
+							items={items}
+						/>
+					</Col>
+					<Col span={15} offset={1}>
+						<HomeCol current={this.state.currentSelect} />
 					</Col>
 					<Col span={3}>
-					
 					</Col>
 				</Row>
 				<Modal
-					title="修改头像"
+					title='修改头像'
 					visible={this.state.visible}
 					onOk={() => this.props.updateImg(this.props.id, fileList)}
 					onCancel={this.hideModal}
-					okText="确认"
+					okText='确认'
 					cancelText="取消"
 				>
 					<div className="clearfix">

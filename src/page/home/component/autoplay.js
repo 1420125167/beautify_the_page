@@ -27,25 +27,27 @@ class Autoplay extends PureComponent {
 					}}>
 					<i className='iconfont'>&#xe900;</i>
 				</Button>
-				<Carousel autoplay ref={e => {
+				<Carousel
+					style={{ height: 500 }}
+					autoplay ref={e => {
 					this.card = e
 				}}>
 					{
 						classData.map((item) => (
-							<Popover
-								placement="right"
-								content={
-									<Card title={item.get('lesson_name')} style={{width: 300}}>
-										<div dangerouslySetInnerHTML={{__html: item.get('lesson_intro')}}/>
-									</Card>
-								}
-								key={item.get('id')}>
-								<Link to={"/classdetail/"+item.get('id')+"/"+item.get('lesson_chapter')}>
-									<Banner imgSrc={img1}>
-										<h3>{item.get('lesson_name')}</h3>
-									</Banner>
-								</Link>
-							</Popover>
+							// <Popover
+							// 	placement="right"
+							// 	content={
+							// 		<Card title={item.get('lesson_name')} style={{width: 300}}>
+							// 			<div dangerouslySetInnerHTML={{__html: item.get('lesson_intro')}}/>
+							// 		</Card>
+							// 	}
+							// 	key={item.get('id')}>
+							<Link to={'/classdetail/' + item.get('id') + '/' + item.get('lesson_chapter')}>
+								<Banner imgSrc={img1}>
+									<h3>{item.get('lesson_name')}</h3>
+								</Banner>
+							</Link>
+							// </Popover>
 						))
 					}
 				</Carousel>
