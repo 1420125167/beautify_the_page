@@ -325,12 +325,19 @@ module.exports = function(webpackEnv) {
 							}, {
 								loader: 'less-loader', // compiles Less to CSS
 								options: {
-									modifyVars: {
-										'primary-color': '#f9c700',
-										'link-color': '#1DA57A',
-										'border-radius-base': '2px',
+									// modifyVars: {
+									// 	'primary-color': '#f9c700',
+									// 	'link-color': '#1DA57A',
+									// 	'border-radius-base': '2px',
+									// },
+									lessOptions: {
+										javascriptEnabled: true,
+										modifyVars: {
+											'primary-color': '#f9c700',
+											'link-color': '#1DA57A',
+											'border-radius-base': '2px',
+										},
 									},
-									javascriptEnabled: true,
 								},
 							}],
 						},

@@ -14,6 +14,7 @@ class Autoplay extends PureComponent {
 			<div>
 				<Button
 					className='carouselLeftButton'
+					style={{ height: 500, position: 'absolute' }}
 					onClick={() => {
 						this.card.prev()
 					}}>
@@ -21,7 +22,7 @@ class Autoplay extends PureComponent {
 				</Button>
 				<Button
 					className={'carouselRightButton'}
-					style={{ float: 'right', right: 0 }}
+					style={{ float: 'right', right: 30, height: 500, position: 'absolute' }}
 					onClick={() => {
 						this.card.next()
 					}}>

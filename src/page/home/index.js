@@ -11,6 +11,7 @@ import Header from '../../common/header';
 import Autoplay from './component/autoplay'
 import Lesson from './component/lesson'
 import HomeSta from './component/static'
+import Class from './component/class'
 
 class Home extends PureComponent {
 	render() {
@@ -32,7 +33,8 @@ class Home extends PureComponent {
 					</Row>
 					<Row>
 						<Col span={12} offset={2}>
-							<Lesson />
+							{/*<Lesson />*/}
+							<Class />
 						</Col>
 						<Col span={6} offset={4}>
 							<RightContent>
