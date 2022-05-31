@@ -21,6 +21,7 @@ import MsgList from './page/MsgList';
 import Modify from './page/modify';
 import SearchList from './page/searchList'
 import Code from './page/Code'
+// import Course from './page/course'
 import './statics/iconfont/iconfont.css'
 
 
@@ -47,6 +48,7 @@ class App extends PureComponent {
             <Route path="/modify" exact component={Modify}/>
 						<Route path='/resource' exact component={Resource} />
 						<Route path='/code' exact component={Code} />
+            {/*<Route path='/course' exact component={Course} />*/}
           </div>
         </BrowserRouter>
       </Provider>

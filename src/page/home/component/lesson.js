@@ -66,14 +66,8 @@ const mapDispatch = (dispatch) => ({
 	loadClassList() {
 		dispatch(actionCreators.loadClassList())
 	},
-	// loadProblemData() {
-	// 	dispatch(actionCreators.loadProblemData())
-	// },
 	onOpenChange(openKeys) {
-		//if(openKeys.length>1)
-		//console.log(openKeys);
 		dispatch(actionCreators.changeOpen([openKeys[1]]))
-		//else dispatch(actionCreators.changeOpen([]));
 	},
 })
 export default connect(mapState, mapDispatch)(Lesson)

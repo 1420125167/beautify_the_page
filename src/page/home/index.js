@@ -31,10 +31,10 @@ class Home extends PureComponent {
 						</Col>
 					</Row>
 					<Row>
-						<Col span={8} offset={4}>
+						<Col span={12} offset={2}>
 							<Lesson />
 						</Col>
-						<Col span={6} offset={1}>
+						<Col span={6} offset={4}>
 							<RightContent>
 								{/*<History/>*/}
 								<New />
