@@ -10,6 +10,7 @@ import LeftMenu from '../../common/leftMenu';
 import Header from '../../common/header';
 import Autoplay from './component/autoplay'
 import Lesson from './component/lesson'
+import HomeSta from './component/static'
 
 class Home extends PureComponent {
 	render() {
@@ -24,6 +25,7 @@ class Home extends PureComponent {
 						<Col span={23} offset={1}>
 							<CenterContent>
 								<Autoplay />
+								<HomeSta />
 								{/*<Problem/>*/}
 							</CenterContent>
 						</Col>

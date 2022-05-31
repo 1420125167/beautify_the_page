@@ -43,8 +43,8 @@ class Autoplay extends PureComponent {
 							// 	}
 							// 	key={item.get('id')}>
 							<Link to={'/classdetail/' + item.get('id') + '/' + item.get('lesson_chapter')}>
-								<Banner imgSrc={img1}>
-									<h3>{item.get('lesson_name')}</h3>
+								<Banner imgSrc={item.get('lesson_img')}>
+									<h3></h3>
 								</Banner>
 							</Link>
 							// </Popover>
