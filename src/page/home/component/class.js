@@ -17,7 +17,7 @@ class Class extends PureComponent {
 				classData.map((item) => {
 					return (
 						<Col span={11} offset={1} key={item.get('id')}>
-							<Link to={'/course'}>
+							<Link to={'/searchlist/class/' + item.get('lesson_name')}>
 								<Card
 									hoverable
 									style={{ width: 300, marginTop: 10 }}

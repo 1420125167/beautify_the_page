@@ -10,6 +10,7 @@ import Header from '../../common/header'
 import RightContent from '../../common/rightContent'
 import search from '../../common/header/component/search'
 import MainCol from './component/mainCol'
+import Bottom from '../../common/bottom'
 
 class SearchList extends Component {
 	
@@ -54,7 +55,7 @@ class SearchList extends Component {
 	}
 	
 	componentDidMount() {
-		// this.setState({searchType: this.props.match.params.type})
+		// this.setState({searchType: this.props.match})
 		this.props.loadSearchListData(this.props.match.params.type, this.props.match.params.search)
 	}
 }

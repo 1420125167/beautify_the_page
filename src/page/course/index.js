@@ -9,6 +9,7 @@ import LeftMenu from '../../common/leftMenu'
 import Header from '../../common/header'
 import RightContent from '../../common/rightContent'
 import { MailOutlined, MessageOutlined } from '@ant-design/icons'
+import Bottom from '../../common/bottom'
 
 // const IconText = ({type, text}) => (
 // 	<span>

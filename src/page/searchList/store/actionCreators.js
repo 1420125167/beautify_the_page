@@ -13,6 +13,10 @@ const LoadSearchList = (data) => ({
 });
 
 export const loadSearchListData = (type, keyword) => {
+	axios.defaults.headers = {
+		// "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+		'Content-Type': 'application/json;charset=UTF-8',
+	}
 	return (dispatch) => {
 		axios.post('http://localhost:8000/searchsubmit/', JSON.stringify({
 			type,
