@@ -36,7 +36,7 @@ class Home extends PureComponent {
 							{/*<Lesson />*/}
 							<Class />
 						</Col>
-						<Col span={6} offset={4}>
+						<Col span={6} offset={3}>
 							<RightContent>
 								{/*<History/>*/}
 								<New />

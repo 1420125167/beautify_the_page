@@ -12,7 +12,7 @@ export const CenterContent = styled.div`
 
   .ant-carousel .slick-slide {
     text-align: center;
-    height: 500px;
+    height: 60vh;
     line-height: 280px;
     background: #364d79;
     overflow: hidden;
@@ -20,7 +20,8 @@ export const CenterContent = styled.div`
 
   .ant-carousel .slick-slide h3 {
     color: #fff;
-    height: 500px;
+    height: 60vh;
+    font-size: 180px;
     //text-align: center;
   }
 `;

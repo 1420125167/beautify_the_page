@@ -40,3 +40,20 @@
   padding: 30px;
   /*background: #ececec;*/
 }
+
+@font-face {
+  font-family: 'myFamily';
+  src: url("./segoepr.ttf");
+  color: #00E5FF;
+}
+
+@font-face {
+  font-family: 'myFamily2';
+  src: url("./chinese.ttf");
+  color: #00E5FF;
+}
+
+.homecarousel {
+  font-family: 'myFamily', 'myFamily2';
+  /*src: url("./segoepr.ttf");*/
+}
